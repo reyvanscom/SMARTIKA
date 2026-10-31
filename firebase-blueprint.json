@@ -2,7 +2,7 @@
   "entities": {
     "TopicOverride": {
       "title": "TopicOverride",
-      "description": "Custom curriculum content, YouTube video links, images, and topic overrides configured by the teacher.",
+      "description": "Custom curriculum content, YouTube video links, images, 12 mini-game question banks, quizzes, assessments, and topic overrides configured by the teacher.",
       "type": "object",
       "properties": {
         "topicId": {
@@ -42,9 +42,15 @@
           "minLength": 0,
           "maxLength": 2000
         },
+        "payloadJson": {
+          "type": "string",
+          "description": "Serialized JSON payload containing complete TopicContentOverride (mini-game question banks, quizzes, assessments, simulations, PBL, inline edits).",
+          "minLength": 0,
+          "maxLength": 900000
+        },
         "authorId": {
           "type": "string",
-          "description": "UID of the authenticated teacher/admin who authored the override.",
+          "description": "UID or verified teacher PIN token of the teacher/admin who authored the override.",
           "minLength": 1,
           "maxLength": 128,
           "pattern": "^[a-zA-Z0-9_\\-]+$"
@@ -86,7 +92,7 @@
         },
         "pinHash": {
           "type": "string",
-          "description": "Salted hash of the teacher password (default smart123).",
+          "description": "Salted hash of the teacher password (default smart123 -> sec_1cf7e71cc2a8a2).",
           "minLength": 4,
           "maxLength": 128,
           "pattern": "^[a-zA-Z0-9_\\-]+$"
@@ -123,7 +129,7 @@
         },
         "authorId": {
           "type": "string",
-          "description": "UID of the authenticated teacher/admin who updated the config.",
+          "description": "UID or verified teacher PIN token of the teacher/admin who updated the config.",
           "minLength": 1,
           "maxLength": 128,
           "pattern": "^[a-zA-Z0-9_\\-]+$"
@@ -220,9 +226,27 @@
           "minimum": 0,
           "maximum": 100000
         },
+        "maxScore": {
+          "type": "integer",
+          "description": "Maximum possible score for the activity.",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "mode": {
+          "type": "string",
+          "description": "Play mode (individu, duel, kelompok).",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "details": {
+          "type": "string",
+          "description": "Activity summary details.",
+          "minLength": 0,
+          "maxLength": 500
+        },
         "authorId": {
           "type": "string",
-          "description": "UID of the authenticated user who recorded the score.",
+          "description": "UID or client identifier of the user who recorded the score.",
           "minLength": 1,
           "maxLength": 128,
           "pattern": "^[a-zA-Z0-9_\\-]+$"
@@ -257,7 +281,7 @@
   "firestore": {
     "/topicOverrides/{topicId}": {
       "schema": "TopicOverride",
-      "description": "Stores teacher curriculum overrides per topic."
+      "description": "Stores teacher curriculum overrides per topic including full payloadJson for Vercel cloud sync."
     },
     "/appConfigs/{configId}": {
       "schema": "AppSecurityConfig",

@@ -1,7 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { APP_ASSETS } from '../constants/assets';
 import { hashTeacherPin, sanitizePlainText } from '../utils/securityHelper';
-import { syncAppConfigToFirestore } from '../firebase';
+import {
+  syncAppConfigToFirestore,
+  fetchAppConfigFromFirestore,
+  subscribeAppConfigFromFirestore
+} from '../firebase';
 import { UserCheck, X, Check, RotateCcw, ShieldCheck } from 'lucide-react';
 
 export interface TeacherProfile {
@@ -55,18 +59,38 @@ export const TeacherProfileProvider: React.FC<{ children: React.ReactNode }> = (
 
   const fetchTeacherProfileFromDb = useCallback(async () => {
     try {
-      const res = await fetch('/api/cms/state');
-      if (!res.ok) return;
-      const data = await res.json();
-      if (data && data.ok && data.teacherProfile && typeof data.teacherProfile === 'object') {
-        const merged: TeacherProfile = {
-          ...DEFAULT_PROFILE,
-          ...data.teacherProfile
+      // 1. Check Firebase Cloud Firestore first (works on Vercel & everywhere)
+      const cloudConfig = await fetchAppConfigFromFirestore();
+      if (cloudConfig && cloudConfig.teacherName) {
+        const mergedCloud: TeacherProfile = {
+          teacherName: cloudConfig.teacherName || DEFAULT_PROFILE.teacherName,
+          teacherNIP: cloudConfig.teacherNIP || DEFAULT_PROFILE.teacherNIP,
+          teacherRole: cloudConfig.teacherRole || DEFAULT_PROFILE.teacherRole,
+          schoolName: cloudConfig.schoolName || DEFAULT_PROFILE.schoolName,
+          schoolAddress: cloudConfig.schoolAddress || DEFAULT_PROFILE.schoolAddress
         };
-        setProfile(merged);
+        setProfile(mergedCloud);
         try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(mergedCloud));
         } catch {}
+        return;
+      }
+
+      // 2. Fallback to Express /api/cms/state or static /cms-database.json
+      const res = await fetch('/api/cms/state');
+      const ct = res.headers.get('content-type') || '';
+      if (res.ok && ct.includes('application/json')) {
+        const data = await res.json();
+        if (data && data.ok && data.teacherProfile && typeof data.teacherProfile === 'object') {
+          const merged: TeacherProfile = {
+            ...DEFAULT_PROFILE,
+            ...data.teacherProfile
+          };
+          setProfile(merged);
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+          } catch {}
+        }
       }
     } catch {
       // Offline fallback uses local profile
@@ -75,6 +99,26 @@ export const TeacherProfileProvider: React.FC<{ children: React.ReactNode }> = (
 
   useEffect(() => {
     fetchTeacherProfileFromDb();
+    const unsub = subscribeAppConfigFromFirestore((cloudConfig) => {
+      if (cloudConfig && cloudConfig.teacherName) {
+        const mergedCloud: TeacherProfile = {
+          teacherName: cloudConfig.teacherName || DEFAULT_PROFILE.teacherName,
+          teacherNIP: cloudConfig.teacherNIP || DEFAULT_PROFILE.teacherNIP,
+          teacherRole: cloudConfig.teacherRole || DEFAULT_PROFILE.teacherRole,
+          schoolName: cloudConfig.schoolName || DEFAULT_PROFILE.schoolName,
+          schoolAddress: cloudConfig.schoolAddress || DEFAULT_PROFILE.schoolAddress
+        };
+        setProfile(mergedCloud);
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(mergedCloud));
+        } catch {}
+      }
+    });
+    return () => {
+      try {
+        unsub();
+      } catch {}
+    };
   }, [fetchTeacherProfileFromDb]);
 
   const isCustomized =
@@ -121,6 +165,11 @@ export const TeacherProfileProvider: React.FC<{ children: React.ReactNode }> = (
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ reset: true })
+    }).catch(() => {});
+    const pinHash = localStorage.getItem('smart_info_teacher_pin_hash_v2') || hashTeacherPin('smart123');
+    syncAppConfigToFirestore({
+      pinHash,
+      ...DEFAULT_PROFILE
     }).catch(() => {});
   };
 

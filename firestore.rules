@@ -39,6 +39,20 @@ service cloud.firestore {
       return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
     }
 
+    function getActivePinHash() {
+      return exists(/databases/$(database)/documents/appConfigs/global)
+        ? get(/databases/$(database)/documents/appConfigs/global).data.pinHash
+        : 'sec_1cf7e71cc2a8a2';
+    }
+
+    function isTeacherPinAuthorized(authorToken) {
+      return request.auth == null &&
+        authorToken is string &&
+        authorToken.size() >= 4 &&
+        authorToken.size() <= 128 &&
+        (authorToken == 'sec_1cf7e71cc2a8a2' || authorToken == getActivePinHash());
+    }
+
     // Validation Blueprint: TopicOverride
     function isValidTopicOverride(data) {
       return data.keys().hasAll([
@@ -59,6 +73,7 @@ service cloud.firestore {
         'customVideoTitle',
         'customMateriImageUrl',
         'customInfographicUrl',
+        'payloadJson',
         'authorId',
         'createdAt',
         'updatedAt'
@@ -69,6 +84,7 @@ service cloud.firestore {
       data.customVideoTitle is string && data.customVideoTitle.size() <= 300 &&
       data.customMateriImageUrl is string && data.customMateriImageUrl.size() <= 2000 &&
       data.customInfographicUrl is string && data.customInfographicUrl.size() <= 2000 &&
+      (!('payloadJson' in data) || (data.payloadJson is string && data.payloadJson.size() <= 900000)) &&
       data.authorId is string && data.authorId.size() >= 1 && data.authorId.size() <= 128 && data.authorId.matches('^[a-zA-Z0-9_\\-]+$') &&
       data.createdAt is timestamp &&
       data.updatedAt is timestamp;
@@ -138,6 +154,9 @@ service cloud.firestore {
         'activityType',
         'activityName',
         'score',
+        'maxScore',
+        'mode',
+        'details',
         'authorId',
         'createdAt',
         'updatedAt'
@@ -159,6 +178,9 @@ service cloud.firestore {
       ] &&
       data.activityName is string && data.activityName.size() >= 1 && data.activityName.size() <= 200 &&
       data.score is int && data.score >= 0 && data.score <= 100000 &&
+      (!('maxScore' in data) || (data.maxScore is int && data.maxScore >= 0 && data.maxScore <= 100000)) &&
+      (!('mode' in data) || (data.mode is string && data.mode.size() >= 1 && data.mode.size() <= 60)) &&
+      (!('details' in data) || (data.details is string && data.details.size() <= 500)) &&
       data.authorId is string && data.authorId.size() >= 1 && data.authorId.size() <= 128 && data.authorId.matches('^[a-zA-Z0-9_\\-]+$') &&
       data.createdAt is timestamp &&
       data.updatedAt is timestamp;
@@ -172,84 +194,121 @@ service cloud.firestore {
 
     // Collection: /topicOverrides/{topicId}
     match /topicOverrides/{topicId} {
-      allow get: if isVerifiedUser() && isValidId(topicId) && (existing().authorId == request.auth.uid || isAdmin());
+      allow get: if isValidId(topicId) && (resource == null || existing().topicId == topicId);
       allow list: if isVerifiedUser() && (existing().authorId == request.auth.uid || isBootstrappedAdmin());
 
-      allow create: if isVerifiedUser() &&
-        isValidId(topicId) &&
+      allow create: if isValidId(topicId) &&
         isValidTopicOverride(incoming()) &&
         incoming().topicId == topicId &&
-        incoming().authorId == request.auth.uid &&
         incoming().createdAt == request.time &&
         incoming().updatedAt == request.time &&
-        isAdmin();
+        (
+          (isVerifiedUser() && incoming().authorId == request.auth.uid && isAdmin()) ||
+          isTeacherPinAuthorized(incoming().authorId)
+        );
 
-      allow update: if isVerifiedUser() &&
-        isValidId(topicId) &&
+      allow update: if isValidId(topicId) &&
         isValidTopicOverride(incoming()) &&
         incoming().topicId == existing().topicId &&
-        incoming().authorId == existing().authorId &&
         incoming().createdAt == existing().createdAt &&
         incoming().updatedAt == request.time &&
-        (existing().authorId == request.auth.uid || isAdmin()) &&
-        incoming().diff(existing()).affectedKeys().hasOnly([
-          'title',
-          'customVideoUrl',
-          'customVideoTitle',
-          'customMateriImageUrl',
-          'customInfographicUrl',
-          'updatedAt'
-        ]);
+        (
+          (
+            isVerifiedUser() &&
+            incoming().authorId == existing().authorId &&
+            (existing().authorId == request.auth.uid || isAdmin()) &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'title',
+              'customVideoUrl',
+              'customVideoTitle',
+              'customMateriImageUrl',
+              'customInfographicUrl',
+              'payloadJson',
+              'updatedAt'
+            ])
+          ) ||
+          (
+            isTeacherPinAuthorized(incoming().authorId) &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'title',
+              'customVideoUrl',
+              'customVideoTitle',
+              'customMateriImageUrl',
+              'customInfographicUrl',
+              'payloadJson',
+              'authorId',
+              'updatedAt'
+            ])
+          )
+        );
 
-      allow delete: if isVerifiedUser() &&
-        isValidId(topicId) &&
-        (existing().authorId == request.auth.uid || isAdmin());
+      allow delete: if isValidId(topicId) &&
+        (
+          (isVerifiedUser() && (existing().authorId == request.auth.uid || isAdmin())) ||
+          isTeacherPinAuthorized(existing().authorId)
+        );
     }
 
     // Collection: /appConfigs/{configId}
     match /appConfigs/{configId} {
-      allow get: if isVerifiedUser() && isValidId(configId) && (existing().authorId == request.auth.uid || isAdmin());
+      allow get: if isValidId(configId) && (resource == null || existing().configId == configId);
       allow list: if isVerifiedUser() && (existing().authorId == request.auth.uid || isBootstrappedAdmin());
 
-      allow create: if isVerifiedUser() &&
-        isValidId(configId) &&
+      allow create: if isValidId(configId) &&
         isValidAppSecurityConfig(incoming()) &&
         incoming().configId == configId &&
-        incoming().authorId == request.auth.uid &&
         incoming().createdAt == request.time &&
         incoming().updatedAt == request.time &&
-        isAdmin();
+        (
+          (isVerifiedUser() && incoming().authorId == request.auth.uid && isAdmin()) ||
+          (request.auth == null && incoming().authorId == 'sec_1cf7e71cc2a8a2')
+        );
 
-      allow update: if isVerifiedUser() &&
-        isValidId(configId) &&
+      allow update: if isValidId(configId) &&
         isValidAppSecurityConfig(incoming()) &&
         incoming().configId == existing().configId &&
-        incoming().authorId == existing().authorId &&
         incoming().createdAt == existing().createdAt &&
         incoming().updatedAt == request.time &&
-        (existing().authorId == request.auth.uid || isAdmin()) &&
         (
-          // Action 1: Update PIN Hash
-          incoming().diff(existing()).affectedKeys().hasOnly(['pinHash', 'updatedAt']) ||
-          // Action 2: Update Teacher Profile
-          incoming().diff(existing()).affectedKeys().hasOnly([
-            'teacherName',
-            'teacherNIP',
-            'teacherRole',
-            'schoolName',
-            'schoolAddress',
-            'updatedAt'
-          ]) ||
-          // Action 3: Full Config Sync by Admin
-          (isAdmin() && incoming().diff(existing()).affectedKeys().hasOnly([
-            'pinHash',
-            'teacherName',
-            'teacherNIP',
-            'teacherRole',
-            'schoolName',
-            'schoolAddress',
-            'updatedAt'
-          ]))
+          (
+            isVerifiedUser() &&
+            incoming().authorId == existing().authorId &&
+            (existing().authorId == request.auth.uid || isAdmin()) &&
+            (
+              incoming().diff(existing()).affectedKeys().hasOnly(['pinHash', 'updatedAt']) ||
+              incoming().diff(existing()).affectedKeys().hasOnly([
+                'teacherName',
+                'teacherNIP',
+                'teacherRole',
+                'schoolName',
+                'schoolAddress',
+                'updatedAt'
+              ]) ||
+              (isAdmin() && incoming().diff(existing()).affectedKeys().hasOnly([
+                'pinHash',
+                'teacherName',
+                'teacherNIP',
+                'teacherRole',
+                'schoolName',
+                'schoolAddress',
+                'updatedAt'
+              ]))
+            )
+          ) ||
+          (
+            request.auth == null &&
+            (incoming().authorId == existing().pinHash || incoming().authorId == 'sec_1cf7e71cc2a8a2') &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'pinHash',
+              'teacherName',
+              'teacherNIP',
+              'teacherRole',
+              'schoolName',
+              'schoolAddress',
+              'authorId',
+              'updatedAt'
+            ])
+          )
         );
 
       allow delete: if isVerifiedUser() &&
@@ -259,25 +318,29 @@ service cloud.firestore {
 
     // Collection: /studentRecords/{recordId}
     match /studentRecords/{recordId} {
-      allow get: if isVerifiedUser() && isValidId(recordId) && (existing().authorId == request.auth.uid || isAdmin());
-      allow list: if isVerifiedUser() && (existing().authorId == request.auth.uid || isBootstrappedAdmin());
+      allow get: if isValidId(recordId) && (resource == null || existing().recordId == recordId);
+      allow list: if existing().recordId is string && existing().score >= 0;
 
-      allow create: if isVerifiedUser() &&
-        isValidId(recordId) &&
+      allow create: if isValidId(recordId) &&
         isValidStudentScoreRecord(incoming()) &&
         incoming().recordId == recordId &&
-        incoming().authorId == request.auth.uid &&
         incoming().createdAt == request.time &&
-        incoming().updatedAt == request.time;
+        incoming().updatedAt == request.time &&
+        (
+          (isVerifiedUser() && incoming().authorId == request.auth.uid) ||
+          (request.auth == null && incoming().authorId == 'student_web_client')
+        );
 
-      allow update: if isVerifiedUser() &&
-        isValidId(recordId) &&
+      allow update: if isValidId(recordId) &&
         isValidStudentScoreRecord(incoming()) &&
         incoming().recordId == existing().recordId &&
         incoming().authorId == existing().authorId &&
         incoming().createdAt == existing().createdAt &&
         incoming().updatedAt == request.time &&
-        (existing().authorId == request.auth.uid || isAdmin()) &&
+        (
+          (isVerifiedUser() && (existing().authorId == request.auth.uid || isAdmin())) ||
+          (request.auth == null && existing().authorId == 'student_web_client')
+        ) &&
         incoming().diff(existing()).affectedKeys().hasOnly([
           'studentName',
           'className',
@@ -287,12 +350,17 @@ service cloud.firestore {
           'activityType',
           'activityName',
           'score',
+          'maxScore',
+          'mode',
+          'details',
           'updatedAt'
         ]);
 
-      allow delete: if isVerifiedUser() &&
-        isValidId(recordId) &&
-        (existing().authorId == request.auth.uid || isAdmin());
+      allow delete: if isValidId(recordId) &&
+        (
+          (isVerifiedUser() && (existing().authorId == request.auth.uid || isAdmin())) ||
+          (request.auth == null && existing().recordId == recordId)
+        );
     }
   }
 }

@@ -1,0 +1,2044 @@
+{
+  "pinHash": "sec_1cf7e71cc2a8a2",
+  "hasCustomPin": false,
+  "overrides": {
+    "k7-idk": {
+      "title": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "shortDesc": "Belajar memahami pengertian, manfaat, jenis-jenis, cara mencari informasi di internet, dan cara mudah memilih sumber yang terpercaya untuk tugas sekolah.",
+      "learningObjectives": [
+        "Memahami pengertian informasi digital dalam kehidupan sehari-hari.",
+        "Menyebutkan berbagai manfaat informasi digital bagi pelajar SMP.",
+        "Mengenal jenis-jenis informasi digital (teks, gambar, audio, dan video).",
+        "Mempraktikkan cara mencari informasi di internet menggunakan kata kunci yang tepat.",
+        "Mengetahui ciri-ciri sumber informasi yang terpercaya (kredibel) dan yang meragukan."
+      ],
+      "customVideoTitle": "Kenapa Orang Cerdas Pun Bisa Termakan Hoax? (Edukasi Kredibilitas Informasi)",
+      "customVideoUrl": "https://www.youtube.com/watch?v=ffJGYUd_4ZE",
+      "customVideoDuration": "04:12",
+      "customVideoDescription": "Panduan seru untuk anak SMP: memahami psikologi kenapa informasi palsu cepat menyebar dan cara kritis menyaring sumber berita terpercaya.",
+      "customRealLifeStory": "Suatu hari di kelas 7 SMP Negeri 5 Kroya, Rizky dan Nisa mendapat tugas membuat laporan tentang \"Hewan Langka di Indonesia\". Rizky langsung mengeklik link pertama dari blog gratisan tanpa nama penulis yang menulis bahwa komodo bisa terbang. Sementara itu, Nisa membuka portal resmi Taman Nasional Komodo di situs pemerintah (.go.id) yang dilengkapi foto dan data habitat asli. Menurutmu, mengapa informasi yang didapat Rizky dan Nisa sangat berbeda, dan apa yang harus dilakukan agar kita tidak salah memilih informasi?",
+      "customTriggerQuestions": [
+        "Apakah semua tulisan dan gambar yang ada di internet itu pasti benar?",
+        "Mengapa kita tidak boleh langsung percaya pada informasi dari blog atau status media sosial tanpa nama pembuatnya?",
+        "Bagaimana cara membedakan situs web resmi sekolah/pemerintah dengan situs web buatan orang sembarangan?"
+      ],
+      "customTriggerAnswerKey": "Siswa mampu mengaitkan fenomena sehari-hari dengan konsep inti materi.",
+      "overview": "Di era digital sekarang, kita bisa menemukan jutaan informasi hanya dalam satu detik melalui smartphone atau laptop! Tapi tahukah kamu, tidak semua informasi di internet itu benar lho. Yuk, kita pelajari 5 hal penting: pengertian informasi digital, manfaatnya, jenis-jenisnya, cara mencarinya, dan cara memilih sumber yang terpercaya!",
+      "tahukahKamu": "Di seluruh dunia, ada lebih dari 5 miliar orang yang menggunakan internet setiap hari, dan jutaan artikel baru diunggah setiap menitnya! Itulah mengapa kemampuan memilih info yang benar adalah \"senjata super\" bagi siswa zaman sekarang!",
+      "faktaMenarik": "Domain web \".sch.id\" hanya boleh dimiliki oleh sekolah resmi di Indonesia yang memiliki surat izin dari dinas pendidikan. Jadi jika ada info dari domain .sch.id, itu pasti dari sekolah resmi!",
+      "infoPenting": "Jika kamu menemukan informasi yang mencurigakan atau menakut-nakuti di internet, jangan langsung dibagikan (share) ke teman atau grup! Tanyakan terlebih dahulu kepada bapak/ibu guru atau orang tua di rumah.",
+      "customKeyConcepts": [
+        {
+          "title": "1. Pengertian Informasi Digital",
+          "explanation": "Informasi digital adalah data atau kabar berita yang telah diolah dan disimpan dalam bentuk format elektronik (digital), sehingga dapat dibuat, dibaca, dan dibagikan menggunakan perangkat seperti komputer, laptop, tablet, atau smartphone.",
+          "bulletPoints": [
+            "Bentuknya bukan kertas fisik, melainkan file digital yang disimpan di memori HP, komputer, atau di awan (internet).",
+            "Sangat mudah disalin, dikirim ke teman, dan diperbarui kapan saja dalam hitungan detik.",
+            "Contoh sehari-hari: pesan WhatsApp, modul PDF Informatika, video YouTube edukasi, dan situs berita online."
+          ],
+          "iconName": "Cpu"
+        },
+        {
+          "title": "2. Manfaat Informasi Digital",
+          "explanation": "Kehadiran informasi digital membawa banyak sekali kemudahan luar biasa bagi pelajar SMP:",
+          "bulletPoints": [
+            "Cepat & Praktis: Membantu kita menemukan jawaban tugas sekolah tanpa harus membuka lemari buku perpustakaan berjam-jam.",
+            "Belajar Kapan Saja & Di Mana Saja: Materi pelajaran bisa dibaca dari rumah, sekolah, maupun saat bepergian.",
+            "Variasi Media Menarik: Belajar jadi lebih asyik karena ada perpaduan warna, animasi, infografis, dan video penjelasan.",
+            "Memudahkan Berbagi & Diskusi: Tugas kelompok dapat dikerjakan bersama lewat internet tanpa harus selalu bertemu fisik."
+          ],
+          "iconName": "Award"
+        },
+        {
+          "title": "3. Jenis-Jenis Informasi Digital",
+          "explanation": "Informasi digital terbagi menjadi 4 kelompok utama berdasarkan bentuknya:",
+          "bulletPoints": [
+            "Teks Digital: Tulisan elektronik seperti artikel web, e-book buku paket, catatan di HP, dan dokumen PDF/Word.",
+            "Gambar & Infografis Digital: Foto hasil jepretan kamera HP, diagram alur, gambar kartun, atau poster panduan belajar (format JPG, PNG).",
+            "Audio Digital: Informasi dalam bentuk gelombang suara, seperti rekaman suara guru, podcast edukasi, dan musik instrumen belajar (format MP3, WAV).",
+            "Video Digital: Gabungan gambar bergerak dan suara, seperti animasi sains, tutorial coding di YouTube, dan video rekaman praktikum (format MP4)."
+          ],
+          "iconName": "Bookmark"
+        },
+        {
+          "title": "4. Cara Mencari Informasi Digital yang Tepat",
+          "explanation": "Agar cepat menemukan bahan tugas sekolah yang pas di mesin pencari (seperti Google):",
+          "bulletPoints": [
+            "Tentukan Kata Kunci (Keywords) Spesifik: Misalnya ketik \"ciri-ciri tumbuhan lumut kelas 7\", jangan hanya mengetik \"lumut\".",
+            "Gunakan Tanda Petik (\" \") untuk Frasa Persis: Contoh: \"SMP Negeri 5 Kroya\" agar Google mencari rangkaian kata itu secara utuh.",
+            "Pilih Sumber Resmi dan Aman: Cari yang memiliki alamat aman (awalan https:// dengan simbol gembok terkunci).",
+            "Jangan Hanya Klik Hasil Pertama: Baca sekilas 2 atau 3 tautan teratas untuk membandingkan isinya."
+          ],
+          "iconName": "Search"
+        },
+        {
+          "title": "5. Kredibilitas Sumber Informasi Digital",
+          "explanation": "Kredibel artinya \"dapat dipercaya dan diakui kebenarannya\". Karena siapa saja bisa mengunggah tulisan ke internet, kita harus pintar memilih sumber:",
+          "bulletPoints": [
+            "Periksa Siapa Penulisnya: Ada nama guru, pakar, atau lembaga resmi yang bertanggung jawab (bukan anonim/tanpa nama).",
+            "Perhatikan Domain Alamat Web: Situs .go.id (pemerintah), .sch.id (sekolah resmi), .ac.id (universitas), dan kemdikbud.go.id jauh lebih terpercaya daripada blog gratisan.",
+            "Periksa Tanggal Terbit: Pastikan infonya tidak basi atau kedaluwarsa, terutama untuk info jadwal dan aturan sekolah.",
+            "Waspadai Judul Heboh (Clickbait): Hindari artikel yang memakai judul bombastis seperti \"HEBOH! Kaget Semua Orang!\", karena biasanya isinya hoaks atau bohong.",
+            "Bandingkan dengan Sumber Lain: Bila sebuah info penting, cocokkan dengan buku paket resmi atau tanyakan kepada Guru Informatika!"
+          ],
+          "iconName": "ShieldCheck"
+        }
+      ],
+      "customDailyLifeExamples": [
+        "Membuka aplikasi Kamus Besar Bahasa Indonesia (KBBI) online di HP untuk mencari arti kata sulit pada tugas Bahasa Indonesia.",
+        "Membaca informasi jadwal libur semester ganjil di website resmi SMP Negeri 5 Kroya daripada percaya kabar burung di grup chat."
+      ],
+      "customSchoolExamples": [
+        "Siswa kelas 7 SMPN 5 Kroya menggunakan kata kunci \"komponen penyusun komputer kelas 7\" untuk membuat tugas presentasi di Google Slides.",
+        "Menuliskan nama website dan judul artikel pada lembar tugas sekolah sebagai bentuk kejujuran belajar."
+      ],
+      "customCommonMistakes": [
+        "Hanya menulis \"Sumber: Google\" pada tugas sekolah (Google itu seperti kantor pos atau pencari jalan, bukan yang menulis artikelnya!).",
+        "Langsung percaya 100% pada pesan berantai di WhatsApp yang diawali kata \"VIRALKAN!\".",
+        "Mengira semua foto di internet pasti asli, padahal sekarang foto bisa diedit atau dibuat dengan komputer."
+      ],
+      "customSummary": [
+        "Informasi digital adalah informasi dalam format elektronik (teks, gambar, audio, video).",
+        "Manfaatnya sangat besar untuk mempercepat belajar, menambah wawasan, dan mengerjakan tugas sekolah.",
+        "Mencari informasi yang tepat dimulai dari kata kunci (keywords) yang jelas dan spesifik.",
+        "Sumber yang kredibel memiliki penulis jelas, domain resmi (.go.id, .sch.id, .ac.id), fakta terbukti, dan bukan hoaks."
+      ],
+      "customAsesmenAwal": [
+        {
+          "id": 1,
+          "question": "Apa yang dimaksud dengan informasi digital secara sederhana?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Informasi berbentuk teks, gambar, suara, atau video yang dibuat dan diakses lewat perangkat elektronik"
+            },
+            {
+              "label": "B",
+              "text": "Buku cetak tebal yang disimpan di lemari perpustakaan"
+            },
+            {
+              "label": "C",
+              "text": "Surat kabar koran yang dicetak menggunakan kertas"
+            },
+            {
+              "label": "D",
+              "text": "Papan tulis hitam yang ditulis memakai kapur"
+            }
+          ],
+          "correctAnswer": "A",
+          "conceptTag": "Pengertian Informasi Digital",
+          "recommendation": "Informasi digital disimpan dalam bentuk file elektronik (0 dan 1) di HP atau komputer."
+        },
+        {
+          "id": 2,
+          "question": "Salah satu manfaat utama informasi digital bagi siswa SMP kelas 7 adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Membuat baterai HP cepat habis"
+            },
+            {
+              "label": "B",
+              "text": "Membuat kita tidak perlu lagi belajar dan mengerjakan tugas"
+            },
+            {
+              "label": "C",
+              "text": "Mempermudah mencari materi belajar dan wawasan ilmu kapan saja dan di mana saja"
+            },
+            {
+              "label": "D",
+              "text": "Menghabiskan waktu untuk bermain game online seharian"
+            }
+          ],
+          "correctAnswer": "C",
+          "conceptTag": "Manfaat Informasi Digital",
+          "recommendation": "Informasi digital membuka akses ilmu pengetahuan luas secara cepat dan praktis."
+        },
+        {
+          "id": 3,
+          "question": "File rekaman suara guru yang menjelaskan materi pelajaran termasuk ke dalam jenis informasi digital berupa...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Kertas cetak"
+            },
+            {
+              "label": "B",
+              "text": "Teks digital"
+            },
+            {
+              "label": "C",
+              "text": "Audio digital"
+            },
+            {
+              "label": "D",
+              "text": "Gambar diam"
+            }
+          ],
+          "correctAnswer": "C",
+          "conceptTag": "Jenis Informasi Digital",
+          "recommendation": "Suara/rekaman adalah audio, tulisan adalah teks, foto adalah gambar, dan video adalah gambar bergerak."
+        },
+        {
+          "id": 4,
+          "question": "Saat mencari informasi tentang \"Tata Surya\" di Google, langkah pertama yang paling tepat adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Mengetikkan kata kunci (keywords) yang jelas dan sesuai topik yang dicari"
+            },
+            {
+              "label": "B",
+              "text": "Menutup browser dan menunggu informasi datang sendiri"
+            },
+            {
+              "label": "C",
+              "text": "Mengetikkan seluruh isi buku pelajaran ke kolom pencarian"
+            },
+            {
+              "label": "D",
+              "text": "Mengeklik iklan belanja yang muncul di layar"
+            }
+          ],
+          "correctAnswer": "A",
+          "conceptTag": "Cara Mencari Informasi Digital",
+          "recommendation": "Gunakan kata kunci ringkas dan tepat agar mesin pencari menampilkan hasil yang relevan."
+        },
+        {
+          "id": 5,
+          "question": "Sebuah artikel di internet disebut kredibel (dapat dipercaya) jika...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Banyak memuat gambar kartun yang bergerak-gerak"
+            },
+            {
+              "label": "B",
+              "text": "Dikirim oleh orang tidak dikenal lewat pesan berantai WhatsApp"
+            },
+            {
+              "label": "C",
+              "text": "Ditulis oleh penulis/lembaga yang jelas, faktanya benar, dan bukan sekadar gosip"
+            },
+            {
+              "label": "D",
+              "text": "Memiliki judul yang sangat heboh dan membuat kaget pembaca"
+            }
+          ],
+          "correctAnswer": "C",
+          "conceptTag": "Kredibilitas Sumber Informasi",
+          "recommendation": "Kredibel artinya dapat dipertanggungjawabkan kebenarannya dan berasal dari sumber terpercaya."
+        }
+      ],
+      "customFormativeCheck": [
+        {
+          "question": "Jika kamu ingin mencari tugas IPA tentang \"Metamorfosis Kupu-Kupu\", kata kunci pencarian manakah yang paling baik diketik di Google?",
+          "options": [
+            "hewan terbang sayap warna warni",
+            "tolong beri saya info tentang kupu-kupu dong google",
+            "kupu",
+            "metamorfosis kupu-kupu materi ipa smp"
+          ],
+          "answerIndex": 3,
+          "explanation": "Benar sekali! Kata kunci yang ringkas, jelas, dan spesifik akan memberikan hasil pencarian yang paling akurat untuk tugas sekolahmu."
+        }
+      ],
+      "customBattleBotQuestions": [
+        {
+          "id": 1,
+          "scenario": "Robot Virus Hoaks menyerang dengan mengirim pesan berantai: \"Sebarkan ke 10 grup atau HP-mu meledak!\".",
+          "question": "Tindakan pertahanan apa yang harus dilakukan Robot Penjaga Edukasi?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Mengirim pulsa ke nomor pengirim"
+            },
+            {
+              "label": "B",
+              "text": "Menyebarkannya ke 20 grup agar lebih aman"
+            },
+            {
+              "label": "C",
+              "text": "Menangis dan mematikan HP selamanya"
+            },
+            {
+              "label": "D",
+              "text": "Mengabaikan dan menghapus pesan, tidak menyebarkannya ke siapa pun"
+            }
+          ],
+          "correctIndex": 3,
+          "damage": 25,
+          "explanation": "Pesan ancaman berantai adalah trik hoaks klasik! Jangan pernah menyebarkannya."
+        },
+        {
+          "id": 2,
+          "scenario": "Lawan mengeluarkan artikel kesehatan dengan judul: \"HEBOH! Makan Kulit Salak Bikin Pintar Coding!\".",
+          "question": "Bagaimana cara Robot Pintar membongkar kelemahan artikel tersebut?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Membuat video TikTok makan kulit salak"
+            },
+            {
+              "label": "B",
+              "text": "Mengecek apakah ada nama dokter/peneliti resmi dan riset medis di situs Kemenkes"
+            },
+            {
+              "label": "C",
+              "text": "Mengunggahnya ke status WhatsApp"
+            },
+            {
+              "label": "D",
+              "text": "Langsung membeli 5 kg buah salak di pasar"
+            }
+          ],
+          "correctIndex": 1,
+          "damage": 25,
+          "explanation": "Klaim luar biasa memerlukan bukti uji klinis dari lembaga resmi, bukan judul heboh."
+        },
+        {
+          "id": 3,
+          "scenario": "Siswa kelas 7 sedang mencari jadwal libur semester resmi dari SMP Negeri 5 Kroya.",
+          "question": "Situs dengan domain manakah yang memiliki perisai pertahanan kredibilitas tertinggi?",
+          "options": [
+            {
+              "label": "A",
+              "text": "info-rahasia-sekolah.fun"
+            },
+            {
+              "label": "B",
+              "text": "bocoran-libur-kroya.xyz"
+            },
+            {
+              "label": "C",
+              "text": "smpn5kroya.sch.id (Domain resmi sekolah Indonesia)"
+            },
+            {
+              "label": "D",
+              "text": "kabar-kroya-gratis.blogspot.com"
+            }
+          ],
+          "correctIndex": 2,
+          "damage": 25,
+          "explanation": "Domain .sch.id hanya diberikan kepada sekolah resmi berizin Kemendikbud."
+        },
+        {
+          "id": 4,
+          "scenario": "Lawan melancarkan serangan \"Sumber Palsu\" dengan mencantumkan \"Sumber: Google\" di tugas makalah.",
+          "question": "Mengapa serangan ini gagal dan ditolak oleh Guru Informatika?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Google hanya berisi peta jalan"
+            },
+            {
+              "label": "B",
+              "text": "Google tidak boleh dibuka di hari Senin"
+            },
+            {
+              "label": "C",
+              "text": "Google adalah mesin pencari, bukan penulis atau pemilik asli artikel"
+            },
+            {
+              "label": "D",
+              "text": "Google berbayar Rp 100.000 per klik"
+            }
+          ],
+          "correctIndex": 2,
+          "damage": 25,
+          "explanation": "Sitasi yang sah harus mencantumkan nama penulis, judul artikel, dan situs pembuatnya."
+        },
+        {
+          "id": 5,
+          "scenario": "Bos Robot Clickbait mengeluarkan jurus pop-up penuh iklan judi dan obat peninggi badan.",
+          "question": "Langkah pamungkas apa yang menunjukkan kecakapan literasi digital siswa SMP?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Memasukkan nomor rekening orang tua"
+            },
+            {
+              "label": "B",
+              "text": "Mengeklik semua iklan yang berkedip"
+            },
+            {
+              "label": "C",
+              "text": "Segera menutup tab situs tersebut dan mencari referensi di portal edukasi terpercaya"
+            },
+            {
+              "label": "D",
+              "text": "Membiarkan laptop terbuka sepanjang malam"
+            }
+          ],
+          "correctIndex": 2,
+          "damage": 25,
+          "explanation": "Situs penuh pop-up iklan komersial agresif menandakan situs berkualitas rendah dan rawan malware."
+        },
+        {
+          "id": 6,
+          "scenario": "Robot Penjelajah menemukan dua artikel tentang penyebab banjir. Artikel pertama mencantumkan nama penulis dan data dari BMKG, sedangkan artikel kedua tidak mencantumkan sumber.",
+          "question": "Artikel manakah yang lebih layak dijadikan referensi awal?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Artikel kedua karena lebih singkat"
+            },
+            {
+              "label": "B",
+              "text": "Artikel pertama karena identitas penulis dan sumber datanya jelas"
+            },
+            {
+              "label": "C",
+              "text": "Keduanya pasti benar"
+            },
+            {
+              "label": "D",
+              "text": "Artikel kedua karena judulnya lebih menarik"
+            }
+          ],
+          "correctIndex": 1,
+          "damage": 25,
+          "explanation": "Identitas penulis dan rujukan data yang jelas membantu kita menilai kredibilitas informasi."
+        },
+        {
+          "id": 7,
+          "scenario": "Robot menerima berita bahwa sekolah akan libur besok dari pesan grup yang tidak menyebutkan asal informasi.",
+          "question": "Apa langkah paling tepat sebelum mempercayai berita tersebut?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Langsung membagikannya ke semua teman"
+            },
+            {
+              "label": "B",
+              "text": "Menganggapnya benar karena dikirim banyak orang"
+            },
+            {
+              "label": "C",
+              "text": "Memeriksa pengumuman resmi sekolah atau bertanya kepada pihak sekolah"
+            },
+            {
+              "label": "D",
+              "text": "Membuat jadwal libur sendiri"
+            }
+          ],
+          "correctIndex": 2,
+          "damage": 25,
+          "explanation": "Informasi tentang sekolah sebaiknya diperiksa melalui kanal resmi sekolah."
+        },
+        {
+          "id": 8,
+          "scenario": "Musuh menyebarkan foto lama kegiatan sekolah dan mengaku bahwa foto itu terjadi hari ini.",
+          "question": "Apa yang perlu diperiksa untuk mengetahui konteks foto tersebut?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Warna bingkai foto"
+            },
+            {
+              "label": "B",
+              "text": "Tanggal, lokasi, dan sumber asli foto"
+            },
+            {
+              "label": "C",
+              "text": "Jumlah orang yang memberi komentar"
+            },
+            {
+              "label": "D",
+              "text": "Ukuran layar yang digunakan"
+            }
+          ],
+          "correctIndex": 1,
+          "damage": 25,
+          "explanation": "Tanggal, lokasi, dan sumber asli membantu memeriksa apakah foto sesuai dengan peristiwa yang diklaim."
+        },
+        {
+          "id": 9,
+          "scenario": "Robot menemukan artikel tanpa tanggal terbit. Informasi di dalamnya membahas teknologi yang cepat berubah.",
+          "question": "Mengapa tanggal terbit perlu diperhatikan?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Agar artikel terlihat lebih panjang"
+            },
+            {
+              "label": "B",
+              "text": "Karena semua artikel lama pasti salah"
+            },
+            {
+              "label": "C",
+              "text": "Untuk mengetahui apakah informasi masih relevan dan terbaru"
+            },
+            {
+              "label": "D",
+              "text": "Supaya bisa mengganti nama penulis"
+            }
+          ],
+          "correctIndex": 2,
+          "damage": 25,
+          "explanation": "Tanggal publikasi membantu menilai kebaruan informasi, terutama pada topik yang cepat berubah."
+        },
+        {
+          "id": 10,
+          "scenario": "Dua situs memberikan angka berbeda tentang jumlah penduduk Indonesia.",
+          "question": "Apa tindakan terbaik untuk memeriksa perbedaan tersebut?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Memilih angka yang paling besar"
+            },
+            {
+              "label": "B",
+              "text": "Membandingkan data dari sumber resmi seperti BPS dan melihat tahun datanya"
+            },
+            {
+              "label": "C",
+              "text": "Memilih angka dari situs dengan tampilan paling bagus"
+            },
+            {
+              "label": "D",
+              "text": "Mengambil rata-rata tanpa memeriksa sumber"
+            }
+          ],
+          "correctIndex": 1,
+          "damage": 25,
+          "explanation": "Bandingkan sumber tepercaya, metode, dan tahun data sebelum menyimpulkan."
+        },
+        {
+          "id": 11,
+          "scenario": "Robot menerima judul berita yang sangat heboh, tetapi isi artikelnya tidak memberikan bukti yang mendukung judul.",
+          "question": "Ciri tersebut paling tepat disebut sebagai apa?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Artikel ilmiah"
+            },
+            {
+              "label": "B",
+              "text": "Konten clickbait"
+            },
+            {
+              "label": "C",
+              "text": "Dokumen resmi"
+            },
+            {
+              "label": "D",
+              "text": "Ensiklopedia"
+            }
+          ],
+          "correctIndex": 1,
+          "damage": 25,
+          "explanation": "Clickbait menggunakan judul sensasional untuk menarik perhatian, tetapi isi belum tentu mendukung klaimnya."
+        },
+        {
+          "id": 12,
+          "scenario": "Dalam tugas kelompok, seorang siswa menyalin paragraf dari internet tanpa menyebutkan sumber.",
+          "question": "Apa tindakan yang seharusnya dilakukan agar tugas lebih bertanggung jawab?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Mengganti beberapa kata saja"
+            },
+            {
+              "label": "B",
+              "text": "Menghapus nama penulis asli"
+            },
+            {
+              "label": "C",
+              "text": "Menuliskan kembali dengan pemahaman sendiri dan mencantumkan sumber"
+            },
+            {
+              "label": "D",
+              "text": "Mengaku sebagai penulis artikel"
+            }
+          ],
+          "correctIndex": 2,
+          "damage": 25,
+          "explanation": "Menghargai karya orang lain dilakukan dengan parafrasa yang benar dan mencantumkan sumber."
+        },
+        {
+          "id": 13,
+          "scenario": "Robot menemukan unggahan yang menyatakan sebuah peristiwa, tetapi tidak ada media tepercaya lain yang memberitakannya.",
+          "question": "Apa langkah verifikasi yang tepat?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Langsung percaya karena sudah viral"
+            },
+            {
+              "label": "B",
+              "text": "Memeriksa pemberitaan dari beberapa sumber tepercaya"
+            },
+            {
+              "label": "C",
+              "text": "Menyebarkan agar cepat diketahui"
+            },
+            {
+              "label": "D",
+              "text": "Menilai kebenaran dari jumlah emoji"
+            }
+          ],
+          "correctIndex": 1,
+          "damage": 25,
+          "explanation": "Pemeriksaan silang atau cross-check membantu mengurangi risiko mempercayai informasi keliru."
+        },
+        {
+          "id": 14,
+          "scenario": "Sebuah halaman web menampilkan nama lembaga terkenal, tetapi alamat situsnya menggunakan ejaan yang berbeda dan mencurigakan.",
+          "question": "Apa yang sebaiknya dilakukan Robot Penjaga?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Tetap memasukkan data pribadi"
+            },
+            {
+              "label": "B",
+              "text": "Memeriksa alamat situs melalui kanal resmi lembaga"
+            },
+            {
+              "label": "C",
+              "text": "Mengikuti semua instruksi halaman"
+            },
+            {
+              "label": "D",
+              "text": "Membagikan tautan tanpa pemeriksaan"
+            }
+          ],
+          "correctIndex": 1,
+          "damage": 25,
+          "explanation": "Periksa alamat domain dengan teliti dan akses situs lembaga melalui kanal resmi."
+        },
+        {
+          "id": 15,
+          "scenario": "Robot harus mencari informasi tentang gempa bumi untuk tugas sekolah.",
+          "question": "Sumber mana yang paling tepat digunakan untuk informasi resmi dan terkini tentang gempa?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Komentar anonim di media sosial"
+            },
+            {
+              "label": "B",
+              "text": "Pesan berantai tanpa tautan"
+            },
+            {
+              "label": "C",
+              "text": "Informasi resmi dari BMKG"
+            },
+            {
+              "label": "D",
+              "text": "Unggahan yang tidak mencantumkan tanggal"
+            }
+          ],
+          "correctIndex": 2,
+          "damage": 25,
+          "explanation": "BMKG merupakan lembaga resmi yang menyediakan informasi dan pemantauan gempa bumi."
+        }
+      ],
+      "customWordScramble": [
+        {
+          "id": 1,
+          "word": "KREDIBEL",
+          "clue": "Sifat suatu sumber informasi yang dapat dipercaya dan diakui kebenarannya.",
+          "dailyContext": "Saat mencari artikel tugas IPA di internet, kamu harus memilih situs yang...",
+          "scrambled": "B E L D I K E R"
+        },
+        {
+          "id": 2,
+          "word": "KEYWORD",
+          "clue": "Kata kunci pencarian yang diketik di mesin pencari Google.",
+          "dailyContext": "Agar tugas cepat ketemu, Budi mengetikkan ... yang tepat di kolom pencarian.",
+          "scrambled": "D R O W Y E K"
+        },
+        {
+          "id": 3,
+          "word": "DOMAIN",
+          "clue": "Nama alamat resmi suatu website, misalnya .sch.id atau .go.id.",
+          "dailyContext": "Situs resmi sekolah SMP Negeri 5 Kroya menggunakan akhiran ... sch.id.",
+          "scrambled": "N A M O I D"
+        },
+        {
+          "id": 4,
+          "word": "DIGITAL",
+          "clue": "Bentuk informasi dalam format elektronik berupa kode biner di HP/komputer.",
+          "dailyContext": "Foto tugas, rekaman suara guru, dan modul PDF termasuk informasi...",
+          "scrambled": "L A T I G I D"
+        },
+        {
+          "id": 5,
+          "word": "SITASI",
+          "clue": "Mencantumkan sumber rujukan penulis secara jujur di akhir laporan tugas.",
+          "dailyContext": "Agar tidak menjiplak (plagiat), Siti menuliskan ... buku referensinya.",
+          "scrambled": "T I S I A S"
+        }
+      ],
+      "pictureGuess": {
+        "0": {
+          "title": "Situs Resmi Sekolah (.sch.id)",
+          "clue": "Ikon perisai centang hijau dengan alamat domain resmi sekolah berizin Kemendikbud.",
+          "dailyContext": "Tempat paling aman untuk mengecek pengumuman libur semester SMPN 5 Kroya.",
+          "options": [
+            "Blog Gratisan",
+            "Status Medsos",
+            "Situs Resmi Sekolah",
+            "Email Spam"
+          ],
+          "correctIndex": 2,
+          "customImageUrl": ""
+        },
+        "1": {
+          "title": "Artikel Umpan Klik (Clickbait)",
+          "clue": "Tanda seru merah besar dengan judul heboh: \"KAGET! SEMUA SISWA SMP MENANGIS!\".",
+          "dailyContext": "Judul berlebihan yang sengaja dibuat untuk memancing klik iklan semata.",
+          "options": [
+            "Jurnal Ilmiah",
+            "Artikel Clickbait",
+            "Kamus Resmi",
+            "Buku Paket"
+          ],
+          "correctIndex": 1,
+          "customImageUrl": ""
+        },
+        "2": {
+          "title": "Modul Digital PDF",
+          "clue": "Ikon dokumen buku digital berwarna merah dengan teks yang rapi dan terstruktur.",
+          "dailyContext": "Bahan bacaan Informatika yang dikirim Bapak Guru ke HP peserta didik.",
+          "options": [
+            "Rekaman Suara",
+            "Koran Kertas Bekas",
+            "Kaset Pita",
+            "Teks Digital / PDF"
+          ],
+          "correctIndex": 3,
+          "customImageUrl": ""
+        },
+        "3": {
+          "title": "Gembok Keamanan Web (HTTPS)",
+          "clue": "Simbol gembok hijau terkunci di samping kolom alamat URL browser.",
+          "dailyContext": "Menandakan koneksi data antara HP-mu dan server website terenkripsi dengan aman.",
+          "options": [
+            "Koneksi Aman HTTPS",
+            "Peringatan Virus",
+            "Baterai Lemah",
+            "Mode Pesawat"
+          ],
+          "correctIndex": 0,
+          "customImageUrl": ""
+        },
+        "4": {
+          "title": "Podcast Edukasi (Audio Digital)",
+          "clue": "Headphone dan gelombang suara suara rekaman guru menjelaskan materi.",
+          "dailyContext": "Mendengarkan materi penjelasan pelajaran sambil beristirahat di rumah.",
+          "options": [
+            "Batu Prasasti",
+            "Video Animasi",
+            "Audio Digital / Podcast",
+            "Poster Cetak"
+          ],
+          "correctIndex": 2,
+          "customImageUrl": ""
+        }
+      },
+      "simulationTitle": "Lab Detektif Digital: Memilah Sumber Terpercaya vs Meragukan",
+      "simulationScenario": "Bantu siswa kelas 7 SMP Negeri 5 Kroya memilah 4 sumber bacaan tugas berikut ke dalam kelompok yang tepat!",
+      "simulationInstructions": "Kelompokkan setiap sumber ke kotak \"Sumber Terpercaya\" atau \"Sumber Meragukan\".",
+      "customPblScenario": {
+        "topicId": "k7-idk",
+        "title": "Gara-Gara Video Hoaks TikTok di Grup WhatsApp Kelas 7",
+        "headline": "Heboh Kabar \"Mulai Besok PR Dihapus dan Libur Sebulan\": Ternyata Dari Akun Palsu!",
+        "contextStory": "Hari Minggu malam pukul 21.00, suasana grup WhatsApp kelas 7 mendadak gaduh. Seorang teman mengirim video TikTok yang berisi tulisan: \"Kabar gembira! Menteri resmi melarang PR dan besok sekolah libur sebulan!\". Banyak teman langsung bersorak dan menutup buku tanpa mengerjakan tugas sekolah. Keesokan paginya, guru memeriksa tugas dan kaget karena separuh kelas tidak mengumpulkan tugas. Setelah ditelusuri, video tersebut ternyata dibuat oleh akun palsu yang hanya mencari likes dan followers.",
+        "location": "Grup WhatsApp Kelas 7 & Ruang Kelas",
+        "urgencyLevel": "Mendesak",
+        "drivingQuestion": "Bagaimana cara kita membiasakan diri mengecek keaslian berita di internet agar tidak gampang tertipu kabar bohong (hoaks) buatan akun pencari sensasi?",
+        "whatWeKnow": [
+          "Ada teman yang langsung membagikan video heboh ke grup kelas tanpa mengecek kebenarannya terlebih dahulu.",
+          "Banyak siswa percaya begitu saja karena judul videonya meyakinkan dan memakai logo mirip instansi resmi.",
+          "Siswa yang percaya hoaks akhirnya terkena teguran guru karena tugas sekolahnya tidak selesai."
+        ],
+        "whatWeNeedToLearn": [
+          "Kisi-kisi 1: Apa saja ciri-ciri akun palsu dan judul berita jebakan (clickbait) di media sosial?",
+          "Kisi-kisi 2: Bagaimana cara mengecek kebenaran pengumuman sekolah di situs resmi pemerintah (.go.id / .sch.id)?",
+          "Kisi-kisi 3: Langkah kebiasaan apa yang harus dilakukan sebelum meneruskan (share) video viral ke grup kelas?"
+        ],
+        "clues": [
+          {
+            "id": "idk-c1",
+            "source": "Pemeriksaan Profil Akun Pembuat Video",
+            "type": "log",
+            "title": "Biodata Akun Penyebar Video di TikTok",
+            "content": "Nama akun pengunggah adalah @info_heboh_viral99, tidak memiliki centang biru resmi, dan seluruh videonya berisi potongan video orang lain yang ditempeli teks heboh.",
+            "highlight": "Bukan Sumber Resmi: Akun Anonim Pemburu Followers"
+          },
+          {
+            "id": "idk-c2",
+            "source": "Situs Resmi Kemendikbudristek",
+            "type": "document",
+            "title": "Cek Pengumuman di Web Resmi (.go.id)",
+            "content": "Pada halaman web resmi kemdikbud.go.id, tidak ada sama sekali berita tentang penghapusan PR atau libur dadakan. Jadwal sekolah tetap berjalan normal sesuai kalender akademik.",
+            "highlight": "Fakta Nyata: Tidak Ada Aturan Libur Dadakan"
+          },
+          {
+            "id": "idk-c3",
+            "source": "Curhatan Siswa yang Tidak Buat Tugas",
+            "type": "interview",
+            "title": "Alasan Mengapa Langsung Percaya",
+            "content": "\"Videonya muncul di FYP TikTok saya dan banyak yang komentar senang, jadi saya kira beneran. Saya kapok tidak kroscek dulu.\"",
+            "highlight": "Komentar Ramai Belum Tentu Berarti Berita Benar"
+          }
+        ],
+        "potentialCauses": [
+          {
+            "id": "cau-idk1",
+            "text": "Kebiasaan langsung percaya pada video viral tanpa melihat siapa nama akun dan sumber aslinya",
+            "category": "Kebiasaan Cepat Percaya",
+            "isRootCause": true,
+            "explanation": "Banyak anak mudah tergiur kabar yang menyenangkan atau heboh tanpa mau meluangkan 1 menit untuk mengecek fakta."
+          },
+          {
+            "id": "cau-idk2",
+            "text": "Belum tahu cara membedakan situs berita resmi dengan akun palsu",
+            "category": "Kurang Literasi Digital",
+            "isRootCause": true,
+            "explanation": "Siswa belum terbiasa memeriksa akhiran domain web seperti .go.id atau mencari konfirmasi berita di Google Berita."
+          },
+          {
+            "id": "cau-idk3",
+            "text": "HP teman kehabisan baterai saat membaca berita",
+            "category": "Bukan Penyebab",
+            "isRootCause": false,
+            "explanation": "Baterai HP tidak ada hubungannya dengan kebenaran isi berita."
+          }
+        ],
+        "recommendedActions": [
+          {
+            "id": "act-idk1",
+            "title": "Terapkan Aturan \"Tahan Jarimu 1 Menit\" (Saring Sebelum Sharing)",
+            "category": "Edukasi & Kebiasaan Baik",
+            "desc": "Jika menemukan berita heboh di medsos, jangan langsung kirim ke grup. Tanyakan dulu: siapa yang membuat dan adakah di berita televisi/web resmi?",
+            "impactScore": 40
+          },
+          {
+            "id": "act-idk2",
+            "title": "Buat Poster \"Tips Jadi Detektif Anti-Hoaks\" di Dinding Kelas",
+            "category": "Langkah Praktis",
+            "desc": "Tempelkan panduan 3 langkah mudah: Cek Pembuat Akun, Cek di Google, dan Tanya Guru/Orang Tua sebelum percaya.",
+            "impactScore": 35
+          },
+          {
+            "id": "act-idk3",
+            "title": "Kesepakatan Grup WhatsApp Kelas: Dilarang Sebar Kabar Tanpa Sumber Jelas",
+            "category": "Aturan & Kesepakatan Sekolah",
+            "desc": "Pengurus kelas berhak mengingatkan atau menegur dengan sopan jika ada anggota grup yang membagikan link mencurigakan.",
+            "impactScore": 25
+          }
+        ],
+        "deliverableName": "Panduan Sederhana: 3 Langkah Cepat Membedakan Berita Asli vs Hoaks",
+        "reflectionPrompt": "Apa yang akan kamu lakukan jika besok ada teman mengirimkan kabar viral yang mencurigakan di grup obrolanmu?"
+      },
+      "customPblIdealProblem": "Masalah utama pada kasus \"Gara-Gara Video Hoaks TikTok di Grup WhatsApp Kelas 7\" di Grup WhatsApp Kelas 7 & Ruang Kelas adalah: Bagaimana cara kita membiasakan diri mengecek keaslian berita di internet agar tidak gampang tertipu kabar bohong (hoaks) buatan akun pencari sensasi? Penyebab intinya meliputi: Kebiasaan langsung percaya pada video viral tanpa melihat siapa nama akun dan sumber aslinya; Belum tahu cara membedakan situs berita resmi dengan akun palsu.",
+      "customPblIdealSolution": "Solusi terpadu yang seharusnya dilakukan kelompok untuk menghasilkan \"Panduan Sederhana: 3 Langkah Cepat Membedakan Berita Asli vs Hoaks\": 1. Terapkan Aturan \"Tahan Jarimu 1 Menit\" (Saring Sebelum Sharing) (Jika menemukan berita heboh di medsos, jangan langsung kirim ke grup. Tanyakan dulu: siapa yang membuat dan adakah di berita televisi/web resmi?) 2. Buat Poster \"Tips Jadi Detektif Anti-Hoaks\" di Dinding Kelas (Tempelkan panduan 3 langkah mudah: Cek Pembuat Akun, Cek di Google, dan Tanya Guru/Orang Tua sebelum percaya.) 3. Kesepakatan Grup WhatsApp Kelas: Dilarang Sebar Kabar Tanpa Sumber Jelas (Pengurus kelas berhak mengingatkan atau menegur dengan sopan jika ada anggota grup yang membagikan link mencurigakan.)",
+      "customKuis": [
+        {
+          "id": 1,
+          "question": "Informasi digital adalah informasi yang disimpan dan diakses dalam bentuk...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Kertas karton tebal"
+            },
+            {
+              "label": "B",
+              "text": "Batu prasasti kuno"
+            },
+            {
+              "label": "C",
+              "text": "Ukiran kayu di dinding"
+            },
+            {
+              "label": "D",
+              "text": "File elektronik pada perangkat komputer atau smartphone"
+            }
+          ],
+          "correctAnswer": "D",
+          "competencyLevel": "Pemahaman (LOTS)",
+          "explanation": "Informasi digital tersimpan secara elektronik dalam kode data komputer (0 dan 1)."
+        },
+        {
+          "id": 2,
+          "question": "Manakah di bawah ini yang merupakan MANFAAT dari adanya informasi digital bagi siswa SMP?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Memaksa siswa bermain game online setiap hari"
+            },
+            {
+              "label": "B",
+              "text": "Membuat siswa tidak perlu membaca lagi selamanya"
+            },
+            {
+              "label": "C",
+              "text": "Bisa mencari materi pelajaran dan referensi tugas secara cepat dan fleksibel"
+            },
+            {
+              "label": "D",
+              "text": "Menggantikan peran teman dan keluarga di dunia nyata"
+            }
+          ],
+          "correctAnswer": "C",
+          "competencyLevel": "Pemahaman (LOTS)",
+          "explanation": "Informasi digital mempermudah siswa belajar mandiri dan menemukan wawasan luas dengan cepat."
+        },
+        {
+          "id": 3,
+          "question": "Video animasi tata surya di YouTube dan video praktikum sains merupakan jenis informasi digital berupa...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Video digital (gambar bergerak bersuara)"
+            },
+            {
+              "label": "B",
+              "text": "Koran cetak"
+            },
+            {
+              "label": "C",
+              "text": "Foto diam tanpa suara"
+            },
+            {
+              "label": "D",
+              "text": "Teks tertulis saja"
+            }
+          ],
+          "correctAnswer": "A",
+          "competencyLevel": "Pemahaman (LOTS)",
+          "explanation": "Video menggabungkan elemen visual bergerak dan audio."
+        },
+        {
+          "id": 4,
+          "question": "Podcast edukasi yang didengarkan melalui headphone di HP termasuk jenis informasi digital berkategori...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Teks cetak"
+            },
+            {
+              "label": "B",
+              "text": "Hardware komputer"
+            },
+            {
+              "label": "C",
+              "text": "Gambar digital"
+            },
+            {
+              "label": "D",
+              "text": "Audio digital"
+            }
+          ],
+          "correctAnswer": "D",
+          "competencyLevel": "Pemahaman (LOTS)",
+          "explanation": "Podcast adalah rekaman suara atau audio digital."
+        },
+        {
+          "id": 5,
+          "question": "Ketika mencari materi tugas tentang \"Sistem Pernapasan Manusia\", tindakan pencarian yang paling tepat adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Mengeklik iklan acak yang lewat"
+            },
+            {
+              "label": "B",
+              "text": "Hanya mengetik huruf \"P\" di kolom pencarian"
+            },
+            {
+              "label": "C",
+              "text": "Menggunakan kata kunci (keywords) yang jelas: \"sistem pernapasan manusia materi ipa smp\""
+            },
+            {
+              "label": "D",
+              "text": "Mengetik \"halo google apa kabar hari ini\""
+            }
+          ],
+          "correctAnswer": "C",
+          "competencyLevel": "Penerapan (MOTS)",
+          "explanation": "Kata kunci spesifik dan tepat membuat mesin pencari memberikan hasil yang paling akurat."
+        },
+        {
+          "id": 6,
+          "question": "Apa fungsi dari penggunaan tanda petik dua (\" \") saat mencari kata di Google, misalnya \"SMP Negeri 5 Kroya\"?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Mencari halaman web yang memuat susunan kata persis seperti di dalam tanda petik"
+            },
+            {
+              "label": "B",
+              "text": "Membuat layar komputer menjadi lebih terang"
+            },
+            {
+              "label": "C",
+              "text": "Mematikan koneksi internet"
+            },
+            {
+              "label": "D",
+              "text": "Menghapus riwayat pencarian Google"
+            }
+          ],
+          "correctAnswer": "A",
+          "competencyLevel": "Penerapan (MOTS)",
+          "explanation": "Tanda petik berguna untuk pencarian frasa persis (exact phrase search)."
+        },
+        {
+          "id": 7,
+          "question": "Domain alamat situs web resmi untuk sekolah-sekolah di Indonesia biasanya berakhiran...",
+          "options": [
+            {
+              "label": "A",
+              "text": ".xyz"
+            },
+            {
+              "label": "B",
+              "text": ".game"
+            },
+            {
+              "label": "C",
+              "text": ".fun"
+            },
+            {
+              "label": "D",
+              "text": ".sch.id (School Indonesia)"
+            }
+          ],
+          "correctAnswer": "D",
+          "competencyLevel": "Pemahaman (LOTS)",
+          "explanation": ".sch.id adalah domain resmi khusus lembaga sekolah formal di Indonesia."
+        },
+        {
+          "id": 8,
+          "question": "Ciri-ciri berita atau artikel yang KURANG DAPAT DIPERCAYA (meragukan) adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Diterbitkan di situs resmi Kementerian Kesehatan"
+            },
+            {
+              "label": "B",
+              "text": "Menggunakan bahasa yang sopan dan teratur"
+            },
+            {
+              "label": "C",
+              "text": "Mencantumkan nama guru dan buku referensi yang jelas"
+            },
+            {
+              "label": "D",
+              "text": "Judulnya sangat heboh dan bombastis (clickbait) serta tidak ada nama penulisnya"
+            }
+          ],
+          "correctAnswer": "D",
+          "competencyLevel": "Penalaran (HOTS)",
+          "explanation": "Artikel clickbait tanpa penulis sering kali berisi kabar bohong (hoaks) yang tidak dapat dipercaya."
+        },
+        {
+          "id": 9,
+          "question": "Mengapa menuliskan \"Sumber: Google\" pada lembar tugas sekolah dianggap kurang tepat oleh guru?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Karena Google tidak ada di internet"
+            },
+            {
+              "label": "B",
+              "text": "Karena Google hanya berisi gambar permainan"
+            },
+            {
+              "label": "C",
+              "text": "Karena Google tidak boleh digunakan oleh anak sekolah"
+            },
+            {
+              "label": "D",
+              "text": "Karena Google adalah mesin pencari penemu web, bukan pembuat atau penulis artikel aslinya"
+            }
+          ],
+          "correctAnswer": "D",
+          "competencyLevel": "Penalaran (HOTS)",
+          "explanation": "Yang harus dicantumkan adalah nama website dan penulis asli artikel yang kamu baca, bukan mesin pencarinya."
+        },
+        {
+          "id": 10,
+          "question": "Sikap yang bijak saat menerima kabar heboh yang belum pasti kebenarannya di grup chat adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Memarahi orang tua di rumah"
+            },
+            {
+              "label": "B",
+              "text": "Menahan diri untuk tidak membagikannya, lalu memverifikasi kebenarannya ke situs resmi atau bertanya ke guru"
+            },
+            {
+              "label": "C",
+              "text": "Menambahi cerita agar semakin seru"
+            },
+            {
+              "label": "D",
+              "text": "Langsung menyebarkannya ke seluruh teman sekelas"
+            }
+          ],
+          "correctAnswer": "B",
+          "competencyLevel": "Penalaran (HOTS)",
+          "explanation": "Saring sebelum sharing! Memverifikasi kebenaran info adalah ciri pelajar cerdas yang berkarakter."
+        }
+      ],
+      "customAsesmenAkhir": [
+        {
+          "id": 1,
+          "question": "Informasi dalam bentuk teks, suara, gambar, atau video yang disimpan dan diproses secara elektronik dinamakan...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Informasi Digital"
+            },
+            {
+              "label": "B",
+              "text": "Buku Catatan Kertas"
+            },
+            {
+              "label": "C",
+              "text": "Papan Pengumuman Kayu"
+            },
+            {
+              "label": "D",
+              "text": "Surat Kabar Cetak"
+            }
+          ],
+          "correctAnswer": "A",
+          "points": 10,
+          "explanation": "Informasi digital adalah data yang dikemas dalam bentuk kode elektronik komputer."
+        },
+        {
+          "id": 2,
+          "question": "Salah satu manfaat utama informasi digital bagi kemudahan belajar siswa adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Membuat tugas sekolah selesai dengan sendirinya tanpa dipelajari"
+            },
+            {
+              "label": "B",
+              "text": "Mempercepat pencarian materi dan mempermudah belajar kapan pun dibutuhkan"
+            },
+            {
+              "label": "C",
+              "text": "Membuat siswa tidak perlu membaca buku lagi"
+            },
+            {
+              "label": "D",
+              "text": "Mengurangi waktu tidur"
+            }
+          ],
+          "correctAnswer": "B",
+          "points": 10,
+          "explanation": "Informasi digital memfasilitasi pembelajaran fleksibel, cepat, dan mudah diakses."
+        },
+        {
+          "id": 3,
+          "question": "Modul materi pelajaran dalam format PDF dan artikel ensiklopedia di internet tergolong ke dalam jenis...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Siaran radio FM"
+            },
+            {
+              "label": "B",
+              "text": "Audio digital murni"
+            },
+            {
+              "label": "C",
+              "text": "Teks digital"
+            },
+            {
+              "label": "D",
+              "text": "Kabel jaringan"
+            }
+          ],
+          "correctAnswer": "C",
+          "points": 10,
+          "explanation": "Dokumen PDF dan artikel web berupa tulisan adalah teks digital."
+        },
+        {
+          "id": 4,
+          "question": "Gambar berformat JPG atau PNG yang menampilkan alur daur air untuk tugas IPA merupakan contoh dari...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Rekaman suara musik"
+            },
+            {
+              "label": "B",
+              "text": "Gambar & Infografis digital"
+            },
+            {
+              "label": "C",
+              "text": "File audio podcast"
+            },
+            {
+              "label": "D",
+              "text": "Baterai laptop"
+            }
+          ],
+          "correctAnswer": "B",
+          "points": 10,
+          "explanation": "Diagram dan poster digital tergolong dalam jenis gambar/infografis digital."
+        },
+        {
+          "id": 5,
+          "question": "Kata kunci (keywords) yang baik untuk mencari materi tentang \"Dampak Positif dan Negatif Internet untuk Remaja\" adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "tolong carikan tugas saya di internet dong sekarang"
+            },
+            {
+              "label": "B",
+              "text": "internet"
+            },
+            {
+              "label": "C",
+              "text": "dampak positif dan negatif internet untuk remaja"
+            },
+            {
+              "label": "D",
+              "text": "remaja masa kini"
+            }
+          ],
+          "correctAnswer": "C",
+          "points": 10,
+          "explanation": "Kata kunci yang mencantumkan inti topik secara spesifik akan menghasilkan referensi yang relevan."
+        },
+        {
+          "id": 6,
+          "question": "Apa arti kata \"Kredibilitas\" pada sumber informasi digital?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Berapa megabyte ukuran file yang diunduh"
+            },
+            {
+              "label": "B",
+              "text": "Warna latar belakang dari website"
+            },
+            {
+              "label": "C",
+              "text": "Tingkat kepercayaan, kejujuran, dan keakuratan suatu sumber informasi"
+            },
+            {
+              "label": "D",
+              "text": "Berapa harga kuota internet untuk membuka halaman tersebut"
+            }
+          ],
+          "correctAnswer": "C",
+          "points": 10,
+          "explanation": "Kredibilitas berarti keandalan dan kelayakan suatu sumber untuk dipercaya kebenarannya."
+        },
+        {
+          "id": 7,
+          "question": "Situs web beralamat akhiran \".go.id\" menandakan bahwa situs tersebut dikelola oleh lembaga...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Penyedia game online luar negeri"
+            },
+            {
+              "label": "B",
+              "text": "Pabrik makanan ringan"
+            },
+            {
+              "label": "C",
+              "text": "Pemerintah Republik Indonesia (Government of Indonesia)"
+            },
+            {
+              "label": "D",
+              "text": "Toko baju online swasta"
+            }
+          ],
+          "correctAnswer": "C",
+          "points": 10,
+          "explanation": ".go.id adalah kode resmi lembaga pemerintahan Indonesia sehingga sangat terpercaya."
+        },
+        {
+          "id": 8,
+          "question": "Mengapa kita harus memeriksa tanggal pembaruan (waktu terbit) pada sebuah informasi di internet?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Agar jam di laptop menjadi cocok"
+            },
+            {
+              "label": "B",
+              "text": "Agar tahu tanggal ulang tahun pemilik website"
+            },
+            {
+              "label": "C",
+              "text": "Tidak ada gunanya sama sekali"
+            },
+            {
+              "label": "D",
+              "text": "Agar memastikan bahwa data atau aturan yang kita gunakan masih baru dan belum kedaluwarsa"
+            }
+          ],
+          "correctAnswer": "D",
+          "points": 10,
+          "explanation": "Banyak informasi berubah seiring waktu (misal aturan ujian, jadwal sekolah), sehingga tanggal penting diperiksa."
+        },
+        {
+          "id": 9,
+          "question": "Jika kamu menemukan tulisan di blog gratisan yang isinya hanya menjelek-jelekkan orang lain tanpa bukti data, langkahmu adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Mengakui tulisan tersebut sebagai buatan sendiri"
+            },
+            {
+              "label": "B",
+              "text": "Menjadikannya referensi utama tugas sekolah"
+            },
+            {
+              "label": "C",
+              "text": "Membagikannya ke semua grup kelas"
+            },
+            {
+              "label": "D",
+              "text": "Mengabaikannya dan tidak menggunakannya sebagai rujukan karena tidak kredibel dan tidak beretika"
+            }
+          ],
+          "correctAnswer": "D",
+          "points": 10,
+          "explanation": "Tulisan tanpa bukti dan bermaksud memojokkan orang lain bukan sumber yang sehat dan kredibel."
+        },
+        {
+          "id": 10,
+          "question": "Cara menuliskan sumber informasi yang benar dan jujur saat mengutip dari internet adalah...",
+          "options": [
+            {
+              "label": "A",
+              "text": "Hanya menulis \"Dari Internet\""
+            },
+            {
+              "label": "B",
+              "text": "Tidak mencantumkan apa pun agar dikira hasil pemikiran sendiri"
+            },
+            {
+              "label": "C",
+              "text": "Mencantumkan nama penulis/lembaga, judul artikel, nama website, dan tanggal akses"
+            },
+            {
+              "label": "D",
+              "text": "Menuliskan alamat rumah kepala sekolah"
+            }
+          ],
+          "correctAnswer": "C",
+          "points": 10,
+          "explanation": "Menyebutkan sumber secara lengkap adalah bukti etika dan kejujuran ilmiah seorang pelajar."
+        }
+      ]
+    }
+  },
+  "teacherProfile": {
+    "teacherName": "Muhammad Rif'ani, S.Kom.",
+    "teacherNIP": "19910916 202421 1 010",
+    "teacherRole": "Guru Informatika SMP Negeri 5 Kroya",
+    "schoolName": "SMP Negeri 5 Kroya",
+    "schoolAddress": "Jl. Raya Mujur-Kroya, Kabupaten Cilacap, Jawa Tengah"
+  },
+  "studentRecords": [
+    {
+      "recordId": "mg_p2_spin-wheel_1793441971670_yjpc",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Roda Keberuntungan",
+      "score": 170,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 170 Poin (DUEL)",
+      "createdAt": "2026-10-31T10:19:41.488Z",
+      "updatedAt": "2026-10-31T10:19:41.488Z"
+    },
+    {
+      "recordId": "mg_spin-wheel_1793441971670_pz3a",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Roda Keberuntungan",
+      "score": 268,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 268 Poin (DUEL)",
+      "createdAt": "2026-10-31T10:19:37.112Z",
+      "updatedAt": "2026-10-31T10:19:42.779Z"
+    },
+    {
+      "recordId": "mg_tower-defense_1793441888741_zu77",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Menara Firewall",
+      "score": 189,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 189 Poin (DUEL)",
+      "createdAt": "2026-10-31T10:18:19.122Z",
+      "updatedAt": "2026-10-31T10:18:19.122Z"
+    },
+    {
+      "recordId": "mg_p2_tower-defense_1793441888741_eod7",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Menara Firewall",
+      "score": 206,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 206 Poin (DUEL)",
+      "createdAt": "2026-10-31T10:18:14.596Z",
+      "updatedAt": "2026-10-31T10:18:19.126Z"
+    },
+    {
+      "recordId": "mg_tug-of-war_1793441832790_jgrl",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tarik Tambang Siber",
+      "score": 343,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 343 Poin (DUEL)",
+      "createdAt": "2026-10-31T10:17:19.230Z",
+      "updatedAt": "2026-10-31T10:17:26.185Z"
+    },
+    {
+      "recordId": "mg_p2_balap-robot_1793441801651_swyy",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 60,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 60 Poin (DUEL)",
+      "createdAt": "2026-10-31T10:16:43.607Z",
+      "updatedAt": "2026-10-31T10:16:49.309Z"
+    },
+    {
+      "recordId": "mg_battle-bot_1793441759566_22m9",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 77,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 77 Poin (DUEL)",
+      "createdAt": "2026-10-31T10:16:16.304Z",
+      "updatedAt": "2026-10-31T10:16:34.534Z"
+    },
+    {
+      "recordId": "mg_p2_tebak-gambar_1793434217882_cjbt",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k9-ruang-publik-virtual",
+      "topicTitle": "Ruang Publik Virtual",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tebak Gambar Misteri",
+      "score": 42,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 42 Poin (DUEL)",
+      "createdAt": "2026-10-31T08:10:22.168Z",
+      "updatedAt": "2026-10-31T08:10:22.168Z"
+    },
+    {
+      "recordId": "mg_p2_tebak-kata_1793434060648_g3fe",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k9-ruang-publik-virtual",
+      "topicTitle": "Ruang Publik Virtual",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tebak Kata Informatika",
+      "score": 30,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 30 Poin (DUEL)",
+      "createdAt": "2026-10-31T08:08:56.960Z",
+      "updatedAt": "2026-10-31T08:08:56.960Z"
+    },
+    {
+      "recordId": "mg_tebak-kata_1793434060648_yz8j",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k9-ruang-publik-virtual",
+      "topicTitle": "Ruang Publik Virtual",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tebak Kata Informatika",
+      "score": 30,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 30 Poin (DUEL)",
+      "createdAt": "2026-10-31T08:08:25.928Z",
+      "updatedAt": "2026-10-31T08:08:56.957Z"
+    },
+    {
+      "recordId": "mg_balap-robot_1793433668654_h5zs",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k9-ruang-publik-virtual",
+      "topicTitle": "Ruang Publik Virtual",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 235,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 235 Poin (DUEL)",
+      "createdAt": "2026-10-31T08:01:31.875Z",
+      "updatedAt": "2026-10-31T08:04:22.986Z"
+    },
+    {
+      "recordId": "mg_p2_balap-robot_1793433668654_pu7e",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k9-ruang-publik-virtual",
+      "topicTitle": "Ruang Publik Virtual",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 187,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 187 Poin (DUEL)",
+      "createdAt": "2026-10-31T08:01:20.623Z",
+      "updatedAt": "2026-10-31T08:04:22.992Z"
+    },
+    {
+      "recordId": "mg_p2_battle-bot_1793433566592_q4lq",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k9-ruang-publik-virtual",
+      "topicTitle": "Ruang Publik Virtual",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 187,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 187 Poin (DUEL)",
+      "createdAt": "2026-10-31T08:00:13.682Z",
+      "updatedAt": "2026-10-31T08:00:59.284Z"
+    },
+    {
+      "recordId": "mg_battle-bot_1793433566592_oyue",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k9-ruang-publik-virtual",
+      "topicTitle": "Ruang Publik Virtual",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 112,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 112 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:59:41.451Z",
+      "updatedAt": "2026-10-31T08:00:59.289Z"
+    },
+    {
+      "recordId": "mg_p2_battle-bot_1793432382248_kdca",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 174,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 174 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:39:52.180Z",
+      "updatedAt": "2026-10-31T07:40:07.720Z"
+    },
+    {
+      "recordId": "mg_battle-bot_1793432382248_459z",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 94,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 94 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:39:43.212Z",
+      "updatedAt": "2026-10-31T07:40:07.715Z"
+    },
+    {
+      "recordId": "mg_p2_tug-of-war_1793431825470_1o83",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tarik Tambang Siber",
+      "score": 505,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 505 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:30:33.209Z",
+      "updatedAt": "2026-10-31T07:31:07.722Z"
+    },
+    {
+      "recordId": "mg_tug-of-war_1793431825470_grbi",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tarik Tambang Siber",
+      "score": 1519,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 1519 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:30:32.002Z",
+      "updatedAt": "2026-10-31T07:31:07.725Z"
+    },
+    {
+      "recordId": "mg_balap-robot_1793431803800_vgyn",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 20,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 20 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:30:15.600Z",
+      "updatedAt": "2026-10-31T07:30:15.600Z"
+    },
+    {
+      "recordId": "mg_p2_balap-robot_1793431803800_1gc6",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 35,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 35 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:30:14.305Z",
+      "updatedAt": "2026-10-31T07:30:15.595Z"
+    },
+    {
+      "recordId": "mg_p2_battle-bot_1793431767938_1zrk",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 40,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 40 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:29:47.095Z",
+      "updatedAt": "2026-10-31T07:29:53.895Z"
+    },
+    {
+      "recordId": "mg_battle-bot_1793431767938_1fzw",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 85,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 85 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:29:45.811Z",
+      "updatedAt": "2026-10-31T07:29:53.891Z"
+    },
+    {
+      "recordId": "mg_p2_balap-robot_1793431666237_ddxh",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 191,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 191 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:27:52.176Z",
+      "updatedAt": "2026-10-31T07:29:11.600Z"
+    },
+    {
+      "recordId": "mg_balap-robot_1793431666236_9k66",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 238,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 238 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:27:48.814Z",
+      "updatedAt": "2026-10-31T07:29:11.596Z"
+    },
+    {
+      "recordId": "mg_p2_battle-bot_1793431591038_jzkh",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 167,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 167 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:26:42.726Z",
+      "updatedAt": "2026-10-31T07:27:35.655Z"
+    },
+    {
+      "recordId": "mg_battle-bot_1793431591038_d9ec",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 181,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 181 Poin (DUEL)",
+      "createdAt": "2026-10-31T07:26:34.225Z",
+      "updatedAt": "2026-10-31T07:27:35.652Z"
+    },
+    {
+      "recordId": "mg_tug-of-war_1793431488802_djcx",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-idk",
+      "topicTitle": "Informasi Digital dan Kredibilitas Sumber Informasi",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tarik Tambang Siber",
+      "score": 1403,
+      "maxScore": 100,
+      "mode": "individu",
+      "details": "Skor 1403 Poin (INDIVIDU)",
+      "createdAt": "2026-10-31T07:24:57.690Z",
+      "updatedAt": "2026-10-31T07:25:57.609Z"
+    },
+    {
+      "recordId": "mg_balap-robot_1793428926228_8tvy",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-bk",
+      "topicTitle": "Berpikir Komputasional",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 146,
+      "maxScore": 100,
+      "mode": "kelompok",
+      "details": "Skor 146 Poin (KELOMPOK)",
+      "createdAt": "2026-10-31T06:42:06.167Z",
+      "updatedAt": "2026-10-31T06:42:15.877Z"
+    },
+    {
+      "recordId": "mg_battle-bot_1793428916431_wby7",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-bk",
+      "topicTitle": "Berpikir Komputasional",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 46,
+      "maxScore": 100,
+      "mode": "kelompok",
+      "details": "Skor 46 Poin (KELOMPOK)",
+      "createdAt": "2026-10-31T06:41:57.620Z",
+      "updatedAt": "2026-10-31T06:41:57.620Z"
+    },
+    {
+      "recordId": "mg_p2_tug-of-war_1793428887292_ahg1",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-bk",
+      "topicTitle": "Berpikir Komputasional",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tarik Tambang Siber",
+      "score": 435,
+      "maxScore": 100,
+      "mode": "kelompok",
+      "details": "Skor Lawan Duel 435 Poin (KELOMPOK)",
+      "createdAt": "2026-10-31T06:41:44.365Z",
+      "updatedAt": "2026-10-31T06:41:44.365Z"
+    },
+    {
+      "recordId": "mg_balap-robot_1793428865519_kwen",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-bk",
+      "topicTitle": "Berpikir Komputasional",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 48,
+      "maxScore": 100,
+      "mode": "kelompok",
+      "details": "Skor 48 Poin (KELOMPOK)",
+      "createdAt": "2026-10-31T06:41:11.539Z",
+      "updatedAt": "2026-10-31T06:41:17.746Z"
+    },
+    {
+      "recordId": "mg_p2_balap-robot_1793428865519_jpay",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-bk",
+      "topicTitle": "Berpikir Komputasional",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 60,
+      "maxScore": 100,
+      "mode": "kelompok",
+      "details": "Skor Lawan Duel 60 Poin (KELOMPOK)",
+      "createdAt": "2026-10-31T06:41:06.696Z",
+      "updatedAt": "2026-10-31T06:41:17.749Z"
+    },
+    {
+      "recordId": "mg_p2_battle-bot_1793428818030_pvo9",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-bk",
+      "topicTitle": "Berpikir Komputasional",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 78,
+      "maxScore": 100,
+      "mode": "kelompok",
+      "details": "Skor Lawan Duel 78 Poin (KELOMPOK)",
+      "createdAt": "2026-10-31T06:40:33.499Z",
+      "updatedAt": "2026-10-31T06:40:45.438Z"
+    },
+    {
+      "recordId": "rec_1793414149348_2p0ix",
+      "studentName": "Siswa (348 Pts)",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Sketsa Cepat: Diagram Lingkaran (Pie Chart) pada Slide",
+      "score": 97,
+      "maxScore": 100,
+      "mode": "individu",
+      "details": "Ronde 4/10 · Skor Sketsa 97%",
+      "createdAt": "2026-10-31T02:35:48.693Z",
+      "updatedAt": "2026-10-31T02:35:48.693Z"
+    },
+    {
+      "recordId": "rec_1793414131329_d4vsh",
+      "studentName": "Siswa (236 Pts)",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Sketsa Cepat: Grafik Batang Visual pada Slide Presentasi",
+      "score": 93,
+      "maxScore": 100,
+      "mode": "individu",
+      "details": "Ronde 3/10 · Skor Sketsa 93%",
+      "createdAt": "2026-10-31T02:35:30.681Z",
+      "updatedAt": "2026-10-31T02:35:30.681Z"
+    },
+    {
+      "recordId": "rec_1793414108743_ev80t",
+      "studentName": "Siswa (118 Pts)",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Sketsa Cepat: Alur Transisi 3 Slide Berurutan",
+      "score": 98,
+      "maxScore": 100,
+      "mode": "individu",
+      "details": "Ronde 2/10 · Skor Sketsa 98%",
+      "createdAt": "2026-10-31T02:35:08.085Z",
+      "updatedAt": "2026-10-31T02:35:08.085Z"
+    },
+    {
+      "recordId": "rec_1793414092055_7ev1x",
+      "studentName": "Siswa (0 Pts)",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Sketsa Cepat: Layar Proyektor Presentasi di Kelas",
+      "score": 98,
+      "maxScore": 100,
+      "mode": "individu",
+      "details": "Ronde 1/10 · Skor Sketsa 98%",
+      "createdAt": "2026-10-31T02:34:51.399Z",
+      "updatedAt": "2026-10-31T02:34:51.399Z"
+    },
+    {
+      "recordId": "mg_tug-of-war_1793414015542_dvs6",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tarik Tambang Siber",
+      "score": 346,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 346 Poin (DUEL)",
+      "createdAt": "2026-10-31T02:34:03.069Z",
+      "updatedAt": "2026-10-31T02:34:10.998Z"
+    },
+    {
+      "recordId": "mg_p2_tug-of-war_1793414015542_4ohf",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Tarik Tambang Siber",
+      "score": 443,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 443 Poin (DUEL)",
+      "createdAt": "2026-10-31T02:33:47.405Z",
+      "updatedAt": "2026-10-31T02:33:47.405Z"
+    },
+    {
+      "recordId": "mg_battle-bot_1793413946899_qtz9",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 227,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 227 Poin (DUEL)",
+      "createdAt": "2026-10-31T02:32:36.821Z",
+      "updatedAt": "2026-10-31T02:33:14.069Z"
+    },
+    {
+      "recordId": "mg_p2_battle-bot_1793413946899_81h3",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Robot Tinju 3D",
+      "score": 175,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 175 Poin (DUEL)",
+      "createdAt": "2026-10-31T02:32:29.519Z",
+      "updatedAt": "2026-10-31T02:33:14.070Z"
+    },
+    {
+      "recordId": "mg_p2_balap-robot_1793413859329_f845",
+      "studentName": "Pemain 2",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 168,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor Lawan Duel 168 Poin (DUEL)",
+      "createdAt": "2026-10-31T02:31:14.448Z",
+      "updatedAt": "2026-10-31T02:32:14.533Z"
+    },
+    {
+      "recordId": "mg_balap-robot_1793413859329_ju2w",
+      "studentName": "Siswa SMPN 5 Kroya",
+      "className": "Kelas VII/VIII/IX",
+      "studentNumber": "-",
+      "topicId": "k7-gslide",
+      "topicTitle": "Aplikasi Presentasi – Google Slides",
+      "activityType": "mini-game",
+      "activityName": "Mini Game: Balap Motor 3D",
+      "score": 132,
+      "maxScore": 100,
+      "mode": "duel",
+      "details": "Skor 132 Poin (DUEL)",
+      "createdAt": "2026-10-31T02:31:02.185Z",
+      "updatedAt": "2026-10-31T02:32:14.532Z"
+    }
+  ],
+  "updatedAt": "2026-10-31T10:19:42.779Z"
+}

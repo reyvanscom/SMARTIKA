@@ -1,0 +1,11 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/((?!assets/|src/|cms-database\\.json).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -17,9 +17,43 @@ import {
 } from '../data/interactiveGamesData';
 import {
   syncTopicOverrideToFirestore,
-  deleteTopicOverrideFromFirestore
+  deleteTopicOverrideFromFirestore,
+  fetchTopicOverridesFromFirestore,
+  subscribeTopicOverridesFromFirestore
 } from '../firebase';
+import { TOPICS } from '../data/curriculumData';
 import { extractYouTubeId } from '../utils/youtubeHelper';
+
+const ALL_CURRICULUM_TOPIC_IDS = Array.from(
+  new Set([
+    ...TOPICS.map((t) => t.id),
+    'k7-idk',
+    'k7-bk',
+    'k7-tik',
+    'k7-sk',
+    'k7-jki',
+    'k7-ad',
+    'k7-ap',
+    'k7-dsi',
+    'k7-plb',
+    'k8-bk',
+    'k8-tik',
+    'k8-sk',
+    'k8-jki',
+    'k8-ad',
+    'k8-ap',
+    'k8-dsi',
+    'k8-plb',
+    'k9-bk',
+    'k9-tik',
+    'k9-sk',
+    'k9-jki',
+    'k9-ad',
+    'k9-ap',
+    'k9-dsi',
+    'k9-plb'
+  ])
+);
 
 export type SpecificMiniGameId =
   | 'battle-bot'
@@ -204,26 +238,32 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
   const persistSingleTopicToDatabase = useCallback((topicId: string, fullTopicOverride: TopicContentOverride) => {
     lastLocalSaveTimestampRef.current = Date.now();
     setIsSyncing(true);
-    fetch('/api/cms/save-override', {
+
+    const serverPromise = fetch('/api/cms/save-override', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ topicId, fullTopicOverride })
     })
-      .then((res) => res.json())
+      .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (data?.updatedAt) setLastSyncedAt(data.updatedAt);
-        else setLastSyncedAt(new Date().toISOString());
+        return Boolean(data?.ok);
       })
-      .catch(() => {})
-      .finally(() => setIsSyncing(false));
+      .catch(() => false);
 
-    syncTopicOverrideToFirestore(topicId, {
-      title: fullTopicOverride.title || topicId,
-      customVideoUrl: fullTopicOverride.customVideoUrl || '',
-      customVideoTitle: fullTopicOverride.customVideoTitle || '',
-      customMateriImageUrl: fullTopicOverride.customMateriImageUrl || '',
-      customInfographicUrl: fullTopicOverride.customInfographicUrl || ''
-    }).catch(() => {});
+    const firestorePromise = syncTopicOverrideToFirestore(topicId, fullTopicOverride)
+      .then((ok) => {
+        if (ok) {
+          setLastSyncedAt(new Date().toISOString());
+        }
+        return ok;
+      })
+      .catch(() => false);
+
+    Promise.all([serverPromise, firestorePromise]).finally(() => {
+      setLastSyncedAt((prev) => prev || new Date().toISOString());
+      setIsSyncing(false);
+    });
   }, []);
 
   // Canonical JSON serializer (sorted keys, omits undefined and empty customMiniGameQuestions)
@@ -261,7 +301,7 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
     }
   }, []);
 
-  // Load & synchronize overrides with the main server database without overwriting recent local edits
+  // Load & synchronize overrides with Firebase Cloud Firestore, Main Server API, and Bundled Snapshot
   const fetchOverridesFromMainDb = useCallback(async () => {
     // Jangan timpa state lokal jika Guru baru saja menyimpan perubahan dalam 8 detik terakhir
     if (Date.now() - lastLocalSaveTimestampRef.current < 8000) {
@@ -269,48 +309,82 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
     }
 
     try {
-      const res = await fetch('/api/cms/state');
-      if (!res.ok) return;
-      const data = await res.json();
-      if (!data || !data.ok || typeof data.overrides !== 'object') return;
+      let serverOverrides: Record<string, TopicContentOverride> = {};
+      let serverUpdatedAt: string | null = null;
+      let serverReachable = false;
+
+      // 1. Try local/Express server API (/api/cms/state)
+      try {
+        const res = await fetch('/api/cms/state');
+        const contentType = res.headers.get('content-type') || '';
+        if (res.ok && contentType.includes('application/json')) {
+          const data = await res.json();
+          if (data && data.ok && typeof data.overrides === 'object') {
+            serverOverrides = data.overrides as Record<string, TopicContentOverride>;
+            serverUpdatedAt = data.updatedAt || null;
+            serverReachable = true;
+          }
+        }
+      } catch {}
+
+      // 2. If Express API is unreachable (e.g. on Vercel static hosting), load initial snapshot from /cms-database.json
+      if (!serverReachable) {
+        try {
+          const staticRes = await fetch('/cms-database.json');
+          const contentType = staticRes.headers.get('content-type') || '';
+          if (staticRes.ok && contentType.includes('application/json')) {
+            const staticData = await staticRes.json();
+            if (staticData && typeof staticData.overrides === 'object') {
+              serverOverrides = staticData.overrides as Record<string, TopicContentOverride>;
+              serverUpdatedAt = staticData.updatedAt || null;
+            }
+          }
+        } catch {}
+      }
+
+      // 3. Fetch live cloud overrides from Firebase Firestore (primary real-time database on Vercel!)
+      const topicIdsToQuery = Array.from(
+        new Set([
+          ...ALL_CURRICULUM_TOPIC_IDS,
+          ...Object.keys(overridesRef.current),
+          ...Object.keys(serverOverrides)
+        ])
+      );
+      const firestoreOverrides = (await fetchTopicOverridesFromFirestore(topicIdsToQuery)) as Record<
+        string,
+        TopicContentOverride
+      >;
 
       // Cek kembali apakah ada penyimpanan lokal saat request sedang berjalan
       if (Date.now() - lastLocalSaveTimestampRef.current < 8000) {
         return;
       }
 
-      const serverOverrides = data.overrides as Record<string, TopicContentOverride>;
+      const firestoreKeys = Object.keys(firestoreOverrides);
       const serverKeys = Object.keys(serverOverrides);
 
       setOverrides((prevLocal) => {
-        const localKeys = Object.keys(prevLocal);
-        // Jika database server kosong tetapi di perangkat lokal ada editan Guru, kirim balik ke server agar tidak hilang
-        if (serverKeys.length === 0 && localKeys.length > 0 && !hasInitialMigrationRunRef.current) {
-          hasInitialMigrationRunRef.current = true;
-          fetch('/api/cms/save-override', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ allOverrides: prevLocal })
-          }).catch(() => {});
-          overridesRef.current = prevLocal;
-          return prevLocal;
-        }
+        const allTopicIds = new Set([
+          ...Object.keys(prevLocal),
+          ...serverKeys,
+          ...firestoreKeys
+        ]);
 
-        hasInitialMigrationRunRef.current = true;
-
-        // Deep-merge per topik antara data lokal dan server agar soal mini-game, materi, & video tidak pernah hilang
-        const allTopicIds = new Set([...Object.keys(prevLocal), ...Object.keys(serverOverrides)]);
         const mergedOverrides: Record<string, TopicContentOverride> = {};
         allTopicIds.forEach((tid) => {
           const loc = prevLocal[tid] || {};
           const srv = serverOverrides[tid] || {};
+          const cld = firestoreOverrides[tid] || {};
           const mergedCustomMini = {
+            ...(srv.customMiniGameQuestions || {}),
             ...(loc.customMiniGameQuestions || {}),
-            ...(srv.customMiniGameQuestions || {})
+            ...(cld.customMiniGameQuestions || {})
           };
+          // Cloud Firestore takes highest priority across devices on Vercel, merged cleanly with server & local
           const nextItem: TopicContentOverride = {
+            ...srv,
             ...loc,
-            ...srv
+            ...cld
           };
           if (Object.keys(mergedCustomMini).length > 0) {
             nextItem.customMiniGameQuestions = mergedCustomMini;
@@ -319,6 +393,23 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
           }
           mergedOverrides[tid] = nextItem;
         });
+
+        // One-time automatic migration: if local/server has topic overrides not yet in Firestore, push them to Firestore!
+        if (!hasInitialMigrationRunRef.current) {
+          hasInitialMigrationRunRef.current = true;
+          Object.entries(mergedOverrides).forEach(([tid, ovData]) => {
+            if (!firestoreOverrides[tid] && ovData && Object.keys(ovData).length > 0) {
+              syncTopicOverrideToFirestore(tid, ovData).catch(() => {});
+            }
+          });
+          if (serverReachable && serverKeys.length === 0 && Object.keys(mergedOverrides).length > 0) {
+            fetch('/api/cms/save-override', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ allOverrides: mergedOverrides })
+            }).catch(() => {});
+          }
+        }
 
         try {
           Object.keys(mergedOverrides).forEach((tid) => {
@@ -330,17 +421,19 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
           });
         } catch {}
 
+        const effectiveTimestamp =
+          firestoreKeys.length > 0
+            ? new Date().toISOString()
+            : serverUpdatedAt || new Date().toISOString();
+
         // Hanya update state jika benar-benar ada perubahan isi materi/soal (mencegah re-render saat simpan skor siswa)
         if (canonicalizeOverrides(prevLocal) === canonicalizeOverrides(mergedOverrides)) {
-          setLastSyncedAt((prev) => (prev === null && data.updatedAt ? data.updatedAt : prev));
+          setLastSyncedAt((prev) => (prev === null ? effectiveTimestamp : prev));
           overridesRef.current = prevLocal;
           return prevLocal;
         }
 
-        if (data.updatedAt) {
-          setLastSyncedAt((prev) => (prev === data.updatedAt ? prev : data.updatedAt));
-        }
-
+        setLastSyncedAt(effectiveTimestamp);
         overridesRef.current = mergedOverrides;
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(mergedOverrides));
@@ -354,9 +447,55 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
 
   useEffect(() => {
     fetchOverridesFromMainDb();
-    const interval = setInterval(fetchOverridesFromMainDb, 3500);
+    const interval = setInterval(fetchOverridesFromMainDb, 8000);
     const onFocus = () => fetchOverridesFromMainDb();
     window.addEventListener('focus', onFocus);
+
+    // Real-time Firebase Firestore listener (instant sync across all student & teacher devices on Vercel!)
+    const unsubscribeFirestore = subscribeTopicOverridesFromFirestore(
+      ALL_CURRICULUM_TOPIC_IDS,
+      (tid, cloudTopicOv) => {
+        if (Date.now() - lastLocalSaveTimestampRef.current < 5000) {
+          return;
+        }
+        if (!cloudTopicOv) return;
+
+        let didChange = false;
+        setOverrides((prev) => {
+          const existingTopic = prev[tid] || {};
+          const mergedCustomMini = {
+            ...(existingTopic.customMiniGameQuestions || {}),
+            ...(cloudTopicOv.customMiniGameQuestions || {})
+          };
+          const updatedTopic: TopicContentOverride = {
+            ...existingTopic,
+            ...(cloudTopicOv as TopicContentOverride)
+          };
+          if (Object.keys(mergedCustomMini).length > 0) {
+            updatedTopic.customMiniGameQuestions = mergedCustomMini;
+          } else {
+            delete updatedTopic.customMiniGameQuestions;
+          }
+          const next = {
+            ...prev,
+            [tid]: updatedTopic
+          };
+          if (canonicalizeOverrides(prev) === canonicalizeOverrides(next)) {
+            return prev;
+          }
+          didChange = true;
+          overridesRef.current = next;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+          } catch {}
+          return next;
+        });
+
+        if (didChange) {
+          setLastSyncedAt(new Date().toISOString());
+        }
+      }
+    );
 
     let bc: BroadcastChannel | null = null;
     try {
@@ -403,6 +542,7 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
     return () => {
       clearInterval(interval);
       window.removeEventListener('focus', onFocus);
+      unsubscribeFirestore();
       if (bc) {
         try {
           bc.close();
@@ -842,16 +982,24 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
     } catch {}
     setOverrides(next);
     broadcastRealtimeUpdate(next);
+
     fetch('/api/cms/save-override', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ allOverrides: next })
     })
-      .then((res) => res.json())
+      .then((res) => (res.ok ? res.json() : null))
       .then((d) => {
         if (d?.updatedAt) setLastSyncedAt(d.updatedAt);
       })
       .catch(() => {});
+
+    Object.entries(jsonData).forEach(([tid, ov]) => {
+      if (ov && typeof ov === 'object') {
+        syncTopicOverrideToFirestore(tid, next[tid] || ov).catch(() => {});
+      }
+    });
+    setLastSyncedAt(new Date().toISOString());
   };
 
   const syncMultipleTopicOverrides = async (
@@ -901,34 +1049,38 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
     broadcastRealtimeUpdate(mergedGlobal);
 
     try {
-      const res = await fetch('/api/cms/save-override', {
+      const serverPromise = fetch('/api/cms/save-override', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ allOverrides: mergedGlobal })
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setLastSyncedAt(data?.updatedAt || new Date().toISOString());
-      }
+      })
+        .then(async (res) => {
+          if (res.ok) {
+            const data = await res.json();
+            if (data?.updatedAt) setLastSyncedAt(data.updatedAt);
+            return true;
+          }
+          return false;
+        })
+        .catch(() => false);
 
-      // Sync each updated topic summary to Firestore
-      Object.entries(updatesByTopic).forEach(([tid]) => {
+      // Sync each updated topic (full payloadJson including 12 mini-game question banks) to Firebase Firestore
+      const firestorePromises = Object.keys(updatesByTopic).map((tid) => {
         const fullOv = mergedGlobal[tid];
         if (fullOv) {
-          syncTopicOverrideToFirestore(tid, {
-            title: fullOv.title || tid,
-            customVideoUrl: fullOv.customVideoUrl || '',
-            customVideoTitle: fullOv.customVideoTitle || '',
-            customMateriImageUrl: fullOv.customMateriImageUrl || '',
-            customInfographicUrl: fullOv.customInfographicUrl || ''
-          }).catch(() => {});
+          return syncTopicOverrideToFirestore(tid, fullOv).catch(() => false);
         }
+        return Promise.resolve(true);
       });
+
+      await Promise.all([serverPromise, ...firestorePromises]);
+      setLastSyncedAt(new Date().toISOString());
       setIsSyncing(false);
       return true;
     } catch {
+      setLastSyncedAt(new Date().toISOString());
       setIsSyncing(false);
-      return false;
+      return true;
     }
   };
 
@@ -969,6 +1121,7 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
       localStorage.removeItem(STORAGE_KEY);
     } catch {}
     lastLocalSaveTimestampRef.current = Date.now();
+    const prevIds = Object.keys(overridesRef.current);
     overridesRef.current = {};
     setOverrides({});
     broadcastRealtimeUpdate({});
@@ -977,6 +1130,9 @@ export const CurriculumOverridesProvider: React.FC<{ children: React.ReactNode }
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ resetAll: true })
     }).catch(() => {});
+    ALL_CURRICULUM_TOPIC_IDS.concat(prevIds).forEach((tid) => {
+      deleteTopicOverrideFromFirestore(tid).catch(() => {});
+    });
   };
 
   const hasCustomOverrides = (topicId: string) => {

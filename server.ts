@@ -63,6 +63,7 @@ interface MainCmsDatabase {
 }
 
 const DB_FILE_PATH = path.resolve(__dirname, 'cms-database.json');
+const PUBLIC_DB_FILE_PATH = path.resolve(__dirname, 'public', 'cms-database.json');
 
 function loadCmsDatabase(): MainCmsDatabase {
   try {
@@ -99,7 +100,15 @@ function loadCmsDatabase(): MainCmsDatabase {
 function saveCmsDatabase(dbState: MainCmsDatabase): void {
   try {
     dbState.updatedAt = new Date().toISOString();
-    fs.writeFileSync(DB_FILE_PATH, JSON.stringify(dbState, null, 2), 'utf-8');
+    const jsonStr = JSON.stringify(dbState, null, 2);
+    fs.writeFileSync(DB_FILE_PATH, jsonStr, 'utf-8');
+    try {
+      const publicDir = path.dirname(PUBLIC_DB_FILE_PATH);
+      if (!fs.existsSync(publicDir)) {
+        fs.mkdirSync(publicDir, { recursive: true });
+      }
+      fs.writeFileSync(PUBLIC_DB_FILE_PATH, jsonStr, 'utf-8');
+    } catch {}
   } catch (err) {
     console.error('Failed to persist cms-database.json:', err);
   }

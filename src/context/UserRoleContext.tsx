@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { hashTeacherPin, sanitizePlainText } from '../utils/securityHelper';
-import { syncAppConfigToFirestore } from '../firebase';
+import {
+  syncAppConfigToFirestore,
+  fetchAppConfigFromFirestore,
+  subscribeAppConfigFromFirestore
+} from '../firebase';
 import { saveStudentScoreToDatabase } from '../utils/studentDatabase';
 import { APP_ASSETS } from '../constants/assets';
 
@@ -125,11 +129,22 @@ export const UserRoleProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   });
 
-  // Fetch latest password hash from main database on mount and when role modal opens
+  // Fetch latest password hash from Firebase Cloud Firestore & main database on mount and when role modal opens
   const syncPinFromDatabase = useCallback(async () => {
     try {
+      const cloudConfig = await fetchAppConfigFromFirestore();
+      if (cloudConfig && typeof cloudConfig.pinHash === 'string' && cloudConfig.pinHash) {
+        setActivePinHash(cloudConfig.pinHash);
+        setHasCustomPin(cloudConfig.pinHash !== DEFAULT_TEACHER_PIN_HASH);
+        try {
+          localStorage.setItem('smart_info_teacher_pin_hash_v2', cloudConfig.pinHash);
+        } catch {}
+        return;
+      }
+
       const res = await fetch('/api/cms/state');
-      if (!res.ok) return;
+      const ct = res.headers.get('content-type') || '';
+      if (!res.ok || !ct.includes('application/json')) return;
       const data = await res.json();
       if (data && typeof data.pinHash === 'string' && data.pinHash) {
         setActivePinHash(data.pinHash);
@@ -145,8 +160,22 @@ export const UserRoleProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   useEffect(() => {
     syncPinFromDatabase();
-    const interval = setInterval(syncPinFromDatabase, 10000);
-    return () => clearInterval(interval);
+    const unsub = subscribeAppConfigFromFirestore((cloudConfig) => {
+      if (cloudConfig && typeof cloudConfig.pinHash === 'string' && cloudConfig.pinHash) {
+        setActivePinHash(cloudConfig.pinHash);
+        setHasCustomPin(cloudConfig.pinHash !== DEFAULT_TEACHER_PIN_HASH);
+        try {
+          localStorage.setItem('smart_info_teacher_pin_hash_v2', cloudConfig.pinHash);
+        } catch {}
+      }
+    });
+    const interval = setInterval(syncPinFromDatabase, 15000);
+    return () => {
+      clearInterval(interval);
+      try {
+        unsub();
+      } catch {}
+    };
   }, [syncPinFromDatabase]);
 
   // Brute-force protection state
@@ -422,8 +451,10 @@ export const UserRoleProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       }
     } catch {}
 
+    const oldHash = hashTeacherPin(currentPin);
     syncAppConfigToFirestore({
       pinHash: newHash,
+      currentPinHashForAuth: oldHash,
       ...savedTeacherProfile
     }).catch(() => {});
 

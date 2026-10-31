@@ -1,4 +1,8 @@
-import { syncStudentRecordToFirestore } from '../firebase';
+import {
+  syncStudentRecordToFirestore,
+  fetchAllStudentRecordsFromFirestore,
+  deleteStudentRecordFromFirestore
+} from '../firebase';
 
 export interface StudentDatabaseRecord {
   recordId: string;
@@ -80,26 +84,50 @@ function setLocalStudentRecordsCache(records: StudentDatabaseRecord[]): void {
 }
 
 /**
- * Fetch all student records from the main server database (/api/cms/students)
+ * Fetch all student records from Firebase Cloud Firestore, Main Server API (/api/cms/students), and local cache.
+ * Ensures 100% synchronization on Vercel across all student and teacher devices.
  */
 export async function fetchAllStudentRecordsFromDb(): Promise<StudentDatabaseRecord[]> {
+  const byId = new Map<string, StudentDatabaseRecord>();
+
+  // 1. Seed with local cache
+  getLocalStudentRecordsCache().forEach((r) => {
+    if (r && r.recordId) byId.set(r.recordId, r);
+  });
+
+  // 2. Try Express server API (/api/cms/students)
   try {
     const res = await fetch('/api/cms/students');
-    if (res.ok) {
+    const ct = res.headers.get('content-type') || '';
+    if (res.ok && ct.includes('application/json')) {
       const data = await res.json();
       if (data && Array.isArray(data.studentRecords)) {
-        setLocalStudentRecordsCache(data.studentRecords);
-        return data.studentRecords;
+        data.studentRecords.forEach((r: StudentDatabaseRecord) => {
+          if (r && r.recordId) byId.set(r.recordId, r);
+        });
       }
     }
-  } catch (err) {
-    console.warn('Offline fallback for student records:', err);
-  }
-  return getLocalStudentRecordsCache();
+  } catch {}
+
+  // 3. Fetch live cloud student records from Firebase Firestore (works on Vercel!)
+  try {
+    const cloudRecords = await fetchAllStudentRecordsFromFirestore();
+    if (Array.isArray(cloudRecords)) {
+      cloudRecords.forEach((r: StudentDatabaseRecord) => {
+        if (r && r.recordId) byId.set(r.recordId, r);
+      });
+    }
+  } catch {}
+
+  const merged = Array.from(byId.values()).sort(
+    (a, b) => new Date(b.updatedAt || b.createdAt || 0).getTime() - new Date(a.updatedAt || a.createdAt || 0).getTime()
+  );
+  setLocalStudentRecordsCache(merged);
+  return merged;
 }
 
 /**
- * Save a student's name, class, score, and activity to the main application database & Firestore
+ * Save a student's name, class, score, and activity to Firebase Firestore & Main Server Database
  */
 export async function saveStudentScoreToDatabase(params: {
   studentName: string;
@@ -153,7 +181,7 @@ export async function saveStudentScoreToDatabase(params: {
     setLocalStudentRecordsCache([optimisticEntry, ...cached]);
   }
 
-  // Sync to Firestore if authenticated
+  // Sync to Firebase Cloud Firestore (works on Vercel for all students & teachers)
   syncStudentRecordToFirestore({
     recordId: generatedId,
     studentName: cleanName,
@@ -163,7 +191,10 @@ export async function saveStudentScoreToDatabase(params: {
     topicTitle: params.topicTitle || 'Informatika',
     activityType: params.activityType,
     activityName: params.activityName,
-    score: safeScore
+    score: safeScore,
+    maxScore: safeMaxScore,
+    mode: params.mode || 'individu',
+    details: params.details || ''
   }).catch(() => {});
 
   // Sync to Main Server Database (/api/cms/students/record -> cms-database.json)
@@ -173,7 +204,8 @@ export async function saveStudentScoreToDatabase(params: {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(optimisticEntry)
     });
-    if (res.ok) {
+    const ct = res.headers.get('content-type') || '';
+    if (res.ok && ct.includes('application/json')) {
       const data = await res.json();
       if (data && Array.isArray(data.studentRecords)) {
         setLocalStudentRecordsCache(data.studentRecords);
@@ -182,27 +214,28 @@ export async function saveStudentScoreToDatabase(params: {
         return data.record;
       }
     }
-  } catch (err) {
-    console.warn('Saved student record to local cache (server unreachable):', err);
-  }
+  } catch {}
 
   return optimisticEntry;
 }
 
 /**
- * Delete a student record or clear all records from the main database (Teacher only)
+ * Delete a student record or clear all records from Firebase Firestore & Main Server Database (Teacher only)
  */
 export async function deleteStudentRecordFromDatabase(params: {
   recordId?: string;
   clearAll?: boolean;
 }): Promise<StudentDatabaseRecord[]> {
+  await deleteStudentRecordFromFirestore(params).catch(() => {});
+
   try {
     const res = await fetch('/api/cms/students/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(params)
     });
-    if (res.ok) {
+    const ct = res.headers.get('content-type') || '';
+    if (res.ok && ct.includes('application/json')) {
       const data = await res.json();
       if (data && Array.isArray(data.studentRecords)) {
         setLocalStudentRecordsCache(data.studentRecords);
