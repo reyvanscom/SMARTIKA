@@ -1,0 +1,271 @@
+{
+  "entities": {
+    "TopicOverride": {
+      "title": "TopicOverride",
+      "description": "Custom curriculum content, YouTube video links, images, and topic overrides configured by the teacher.",
+      "type": "object",
+      "properties": {
+        "topicId": {
+          "type": "string",
+          "description": "Unique identifier of the curriculum topic.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "title": {
+          "type": "string",
+          "description": "Customized title of the topic.",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "customVideoUrl": {
+          "type": "string",
+          "description": "Customized YouTube video URL for the topic.",
+          "minLength": 0,
+          "maxLength": 1000
+        },
+        "customVideoTitle": {
+          "type": "string",
+          "description": "Customized YouTube video title.",
+          "minLength": 0,
+          "maxLength": 300
+        },
+        "customMateriImageUrl": {
+          "type": "string",
+          "description": "Customized material banner image URL.",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        "customInfographicUrl": {
+          "type": "string",
+          "description": "Customized infographic image URL.",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        "authorId": {
+          "type": "string",
+          "description": "UID of the authenticated teacher/admin who authored the override.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the override was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the override was last updated."
+        }
+      },
+      "required": [
+        "topicId",
+        "title",
+        "customVideoUrl",
+        "customVideoTitle",
+        "customMateriImageUrl",
+        "customInfographicUrl",
+        "authorId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AppSecurityConfig": {
+      "title": "AppSecurityConfig",
+      "description": "Global application teacher password hash and teacher identity profile.",
+      "type": "object",
+      "properties": {
+        "configId": {
+          "type": "string",
+          "description": "Identifier of the global config document.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "pinHash": {
+          "type": "string",
+          "description": "Salted hash of the teacher password (default smart123).",
+          "minLength": 4,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "teacherName": {
+          "type": "string",
+          "description": "Full name and title of the teacher.",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "teacherNIP": {
+          "type": "string",
+          "description": "Teacher employee identification number (NIP).",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "teacherRole": {
+          "type": "string",
+          "description": "Role or position title of the teacher.",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "schoolName": {
+          "type": "string",
+          "description": "School name.",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "schoolAddress": {
+          "type": "string",
+          "description": "School address.",
+          "minLength": 1,
+          "maxLength": 250
+        },
+        "authorId": {
+          "type": "string",
+          "description": "UID of the authenticated teacher/admin who updated the config.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the config was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the config was last updated."
+        }
+      },
+      "required": [
+        "configId",
+        "pinHash",
+        "teacherName",
+        "teacherNIP",
+        "teacherRole",
+        "schoolName",
+        "schoolAddress",
+        "authorId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "StudentScoreRecord": {
+      "title": "StudentScoreRecord",
+      "description": "Student profile, mini-game scores, and assessment records persisted to the application database.",
+      "type": "object",
+      "properties": {
+        "recordId": {
+          "type": "string",
+          "description": "Unique identifier of the student score record.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "studentName": {
+          "type": "string",
+          "description": "Full name of the student.",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "className": {
+          "type": "string",
+          "description": "Class name of the student (e.g., VII-A, VIII-B, IX-C).",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "studentNumber": {
+          "type": "string",
+          "description": "Student attendance number (nomor absen).",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "topicId": {
+          "type": "string",
+          "description": "Curriculum topic identifier.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "topicTitle": {
+          "type": "string",
+          "description": "Curriculum topic title.",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "activityType": {
+          "type": "string",
+          "description": "Category of learning activity.",
+          "enum": [
+            "mini-game",
+            "kuis",
+            "asesmen-awal",
+            "asesmen-akhir",
+            "simulasi",
+            "pbl",
+            "profil"
+          ]
+        },
+        "activityName": {
+          "type": "string",
+          "description": "Specific mini-game or module name.",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "score": {
+          "type": "integer",
+          "description": "Numeric score earned by the student.",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "authorId": {
+          "type": "string",
+          "description": "UID of the authenticated user who recorded the score.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the record was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the record was last updated."
+        }
+      },
+      "required": [
+        "recordId",
+        "studentName",
+        "className",
+        "studentNumber",
+        "topicId",
+        "topicTitle",
+        "activityType",
+        "activityName",
+        "score",
+        "authorId",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/topicOverrides/{topicId}": {
+      "schema": "TopicOverride",
+      "description": "Stores teacher curriculum overrides per topic."
+    },
+    "/appConfigs/{configId}": {
+      "schema": "AppSecurityConfig",
+      "description": "Stores global teacher password hash and teacher identity profile."
+    },
+    "/studentRecords/{recordId}": {
+      "schema": "StudentScoreRecord",
+      "description": "Stores student names, mini-game scores, and assessment records."
+    }
+  }
+}

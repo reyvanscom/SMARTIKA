@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      window.addEventListener(
+        'error',
+        function (event) {
+          var src = String((event && event.filename) || '');
+          var msg = String((event && event.message) || '');
+          if (
+            src.indexOf('chrome-extension://') === 0 ||
+            msg.indexOf('Cannot set property fetch') !== -1
+          ) {
+            event.stopImmediatePropagation();
+            event.preventDefault();
+          }
+        },
+        true
+      );
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMART INFORMATIKA</title>
+    <link rel="icon" type="image/png" href="/assets/aistudio/LOGO_SMP5_ori_v2_102e67ea.png" />
+    <meta name="description" content="Media Pembelajaran Interaktif (MPI) Informatika SMP Negeri 5 Kroya untuk Kelas 7, 8, dan 9" />
+    <meta property="og:title" content="SMART INFORMATIKA" />
+    <meta property="og:description" content="Media Pembelajaran Interaktif (MPI) Informatika SMP Negeri 5 Kroya untuk Kelas 7, 8, dan 9" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="antialiased selection:bg-cyan-500/20 selection:text-cyan-700">
+    <script>
+      (function () {
+        var prevOnError = window.onerror;
+        window.onerror = function (message, source, lineno, colno, error) {
+          var src = String(source || '');
+          var msg = String(message || '');
+          var stack = String((error && error.stack) || '');
+          if (
+            src.indexOf('chrome-extension://') === 0 ||
+            stack.indexOf('chrome-extension://') !== -1 ||
+            msg.indexOf('Cannot set property fetch') !== -1
+          ) {
+            return true;
+          }
+          if (typeof prevOnError === 'function') {
+            return prevOnError.apply(this, arguments);
+          }
+          return false;
+        };
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Default theme: tech-blue */
+    --theme-primary: #0284c7;
+    --theme-primary-hover: #0369a1;
+    --theme-primary-light: #e0f2fe;
+    --theme-primary-dark: #075985;
+    --theme-accent: #06b6d4;
+    --theme-gradient-from: #0284c7;
+    --theme-gradient-to: #0ea5e9;
+    --theme-badge-bg: #f0f9ff;
+    --theme-badge-text: #0369a1;
+    --theme-badge-border: #bae6fd;
+    --theme-ring: rgba(2, 132, 199, 0.35);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+}
+
+/* Theme Classes applied to root/body */
+.theme-tech-blue, :root[data-theme="tech-blue"] {
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-500: #0284c7;
+  --primary-600: #0369a1;
+  --primary-700: #075985;
+  --accent-cyan: #06b6d4;
+  --theme-bg-light: #f8fafc;
+  --theme-bg-dark: #090d16;
+  --theme-primary: #0284c7;
+  --theme-primary-hover: #0369a1;
+  --theme-primary-light: #e0f2fe;
+  --theme-primary-dark: #075985;
+  --theme-accent: #06b6d4;
+  --theme-gradient-from: #0284c7;
+  --theme-gradient-to: #0ea5e9;
+  --theme-badge-bg: #f0f9ff;
+  --theme-badge-text: #0369a1;
+  --theme-badge-border: #bae6fd;
+  --theme-ring: rgba(2, 132, 199, 0.35);
+}
+
+.theme-cyber-purple, :root[data-theme="cyber-purple"] {
+  --primary-50: #faf5ff;
+  --primary-100: #f3e8ff;
+  --primary-500: #7c3aed;
+  --primary-600: #6d28d9;
+  --primary-700: #5b21b6;
+  --accent-cyan: #a855f7;
+  --theme-bg-light: #faf7fd;
+  --theme-bg-dark: #0d0914;
+  --theme-primary: #7c3aed;
+  --theme-primary-hover: #6d28d9;
+  --theme-primary-light: #f3e8ff;
+  --theme-primary-dark: #5b21b6;
+  --theme-accent: #a855f7;
+  --theme-gradient-from: #7c3aed;
+  --theme-gradient-to: #9333ea;
+  --theme-badge-bg: #faf5ff;
+  --theme-badge-text: #6d28d9;
+  --theme-badge-border: #e9d5ff;
+  --theme-ring: rgba(124, 58, 237, 0.35);
+}
+
+.theme-nature-green, :root[data-theme="nature-green"] {
+  --primary-50: #f0fdf4;
+  --primary-100: #dcfce7;
+  --primary-500: #059669;
+  --primary-600: #047857;
+  --primary-700: #065f46;
+  --accent-cyan: #10b981;
+  --theme-bg-light: #f6faf7;
+  --theme-bg-dark: #08110b;
+  --theme-primary: #059669;
+  --theme-primary-hover: #047857;
+  --theme-primary-light: #d1fae5;
+  --theme-primary-dark: #065f46;
+  --theme-accent: #10b981;
+  --theme-gradient-from: #059669;
+  --theme-gradient-to: #10b981;
+  --theme-badge-bg: #f0fdf4;
+  --theme-badge-text: #047857;
+  --theme-badge-border: #a7f3d0;
+  --theme-ring: rgba(5, 150, 105, 0.35);
+}
+
+/* Theme Utility Classes */
+.bg-theme-main {
+  background-color: var(--theme-primary) !important;
+}
+.bg-theme-hover:hover {
+  background-color: var(--theme-primary-hover) !important;
+}
+.text-theme-main {
+  color: var(--theme-primary) !important;
+}
+.border-theme-main {
+  border-color: var(--theme-primary) !important;
+}
+.bg-theme-soft {
+  background-color: var(--theme-primary-light) !important;
+}
+.bg-theme-grad {
+  background: linear-gradient(135deg, var(--theme-gradient-from), var(--theme-gradient-to)) !important;
+}
+.ring-theme-main {
+  --tw-ring-color: var(--theme-ring) !important;
+}
+
+/* Print Specific Rules for Certificate, LKPD, and Documents */
+@media print {
+  /* Hide UI elements that should never be printed */
+  nav,
+  header,
+  footer,
+  button,
+  .print\:hidden,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Universal reset for clean crisp A4 printing */
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* When printing certificate specifically */
+  body:has(#certificate-print-area) *:not(#certificate-print-area, #certificate-print-area *) {
+    visibility: hidden !important;
+  }
+
+  #certificate-print-area,
+  #certificate-print-area * {
+    visibility: visible !important;
+  }
+
+  #certificate-print-area {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border-width: 6px !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* When printing LKPD */
+  .print-lkpd-only {
+    display: block !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 8mm !important;
+  }
+
+  @page {
+    margin: 10mm 15mm;
+    size: auto;
+  }
+}

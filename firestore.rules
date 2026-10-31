@@ -1,0 +1,298 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Default-Deny Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Hardened Global Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isBootstrappedAdmin() {
+      return isVerifiedUser() && request.auth.token.email == 'Reyvanscom@gmail.com';
+    }
+
+    function isAdmin() {
+      return isBootstrappedAdmin() || (
+        isVerifiedUser() &&
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Validation Blueprint: TopicOverride
+    function isValidTopicOverride(data) {
+      return data.keys().hasAll([
+        'topicId',
+        'title',
+        'customVideoUrl',
+        'customVideoTitle',
+        'customMateriImageUrl',
+        'customInfographicUrl',
+        'authorId',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'topicId',
+        'title',
+        'customVideoUrl',
+        'customVideoTitle',
+        'customMateriImageUrl',
+        'customInfographicUrl',
+        'authorId',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      data.topicId is string && data.topicId.size() >= 1 && data.topicId.size() <= 128 && data.topicId.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.title is string && data.title.size() >= 1 && data.title.size() <= 300 &&
+      data.customVideoUrl is string && data.customVideoUrl.size() <= 1000 &&
+      data.customVideoTitle is string && data.customVideoTitle.size() <= 300 &&
+      data.customMateriImageUrl is string && data.customMateriImageUrl.size() <= 2000 &&
+      data.customInfographicUrl is string && data.customInfographicUrl.size() <= 2000 &&
+      data.authorId is string && data.authorId.size() >= 1 && data.authorId.size() <= 128 && data.authorId.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp;
+    }
+
+    // Validation Blueprint: AppSecurityConfig
+    function isValidAppSecurityConfig(data) {
+      return data.keys().hasAll([
+        'configId',
+        'pinHash',
+        'teacherName',
+        'teacherNIP',
+        'teacherRole',
+        'schoolName',
+        'schoolAddress',
+        'authorId',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'configId',
+        'pinHash',
+        'teacherName',
+        'teacherNIP',
+        'teacherRole',
+        'schoolName',
+        'schoolAddress',
+        'authorId',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      data.configId is string && data.configId.size() >= 1 && data.configId.size() <= 128 && data.configId.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.pinHash is string && data.pinHash.size() >= 4 && data.pinHash.size() <= 128 && data.pinHash.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.teacherName is string && data.teacherName.size() >= 1 && data.teacherName.size() <= 120 &&
+      data.teacherNIP is string && data.teacherNIP.size() >= 1 && data.teacherNIP.size() <= 60 &&
+      data.teacherRole is string && data.teacherRole.size() >= 1 && data.teacherRole.size() <= 120 &&
+      data.schoolName is string && data.schoolName.size() >= 1 && data.schoolName.size() <= 120 &&
+      data.schoolAddress is string && data.schoolAddress.size() >= 1 && data.schoolAddress.size() <= 250 &&
+      data.authorId is string && data.authorId.size() >= 1 && data.authorId.size() <= 128 && data.authorId.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp;
+    }
+
+    // Validation Blueprint: StudentScoreRecord
+    function isValidStudentScoreRecord(data) {
+      return data.keys().hasAll([
+        'recordId',
+        'studentName',
+        'className',
+        'studentNumber',
+        'topicId',
+        'topicTitle',
+        'activityType',
+        'activityName',
+        'score',
+        'authorId',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      data.keys().hasOnly([
+        'recordId',
+        'studentName',
+        'className',
+        'studentNumber',
+        'topicId',
+        'topicTitle',
+        'activityType',
+        'activityName',
+        'score',
+        'authorId',
+        'createdAt',
+        'updatedAt'
+      ]) &&
+      data.recordId is string && data.recordId.size() >= 1 && data.recordId.size() <= 128 && data.recordId.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.studentName is string && data.studentName.size() >= 1 && data.studentName.size() <= 120 &&
+      data.className is string && data.className.size() >= 1 && data.className.size() <= 60 &&
+      data.studentNumber is string && data.studentNumber.size() >= 1 && data.studentNumber.size() <= 30 &&
+      data.topicId is string && data.topicId.size() >= 1 && data.topicId.size() <= 128 && data.topicId.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.topicTitle is string && data.topicTitle.size() >= 1 && data.topicTitle.size() <= 300 &&
+      data.activityType is string && data.activityType in [
+        'mini-game',
+        'kuis',
+        'asesmen-awal',
+        'asesmen-akhir',
+        'simulasi',
+        'pbl',
+        'profil'
+      ] &&
+      data.activityName is string && data.activityName.size() >= 1 && data.activityName.size() <= 200 &&
+      data.score is int && data.score >= 0 && data.score <= 100000 &&
+      data.authorId is string && data.authorId.size() >= 1 && data.authorId.size() <= 128 && data.authorId.matches('^[a-zA-Z0-9_\\-]+$') &&
+      data.createdAt is timestamp &&
+      data.updatedAt is timestamp;
+    }
+
+    // Collection: /admins/{adminId}
+    match /admins/{adminId} {
+      allow get: if isVerifiedUser() && isValidId(adminId) && request.auth.uid == adminId;
+      allow list, create, update, delete: if false;
+    }
+
+    // Collection: /topicOverrides/{topicId}
+    match /topicOverrides/{topicId} {
+      allow get: if isVerifiedUser() && isValidId(topicId) && (existing().authorId == request.auth.uid || isAdmin());
+      allow list: if isVerifiedUser() && (existing().authorId == request.auth.uid || isBootstrappedAdmin());
+
+      allow create: if isVerifiedUser() &&
+        isValidId(topicId) &&
+        isValidTopicOverride(incoming()) &&
+        incoming().topicId == topicId &&
+        incoming().authorId == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time &&
+        isAdmin();
+
+      allow update: if isVerifiedUser() &&
+        isValidId(topicId) &&
+        isValidTopicOverride(incoming()) &&
+        incoming().topicId == existing().topicId &&
+        incoming().authorId == existing().authorId &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (existing().authorId == request.auth.uid || isAdmin()) &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'title',
+          'customVideoUrl',
+          'customVideoTitle',
+          'customMateriImageUrl',
+          'customInfographicUrl',
+          'updatedAt'
+        ]);
+
+      allow delete: if isVerifiedUser() &&
+        isValidId(topicId) &&
+        (existing().authorId == request.auth.uid || isAdmin());
+    }
+
+    // Collection: /appConfigs/{configId}
+    match /appConfigs/{configId} {
+      allow get: if isVerifiedUser() && isValidId(configId) && (existing().authorId == request.auth.uid || isAdmin());
+      allow list: if isVerifiedUser() && (existing().authorId == request.auth.uid || isBootstrappedAdmin());
+
+      allow create: if isVerifiedUser() &&
+        isValidId(configId) &&
+        isValidAppSecurityConfig(incoming()) &&
+        incoming().configId == configId &&
+        incoming().authorId == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time &&
+        isAdmin();
+
+      allow update: if isVerifiedUser() &&
+        isValidId(configId) &&
+        isValidAppSecurityConfig(incoming()) &&
+        incoming().configId == existing().configId &&
+        incoming().authorId == existing().authorId &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (existing().authorId == request.auth.uid || isAdmin()) &&
+        (
+          // Action 1: Update PIN Hash
+          incoming().diff(existing()).affectedKeys().hasOnly(['pinHash', 'updatedAt']) ||
+          // Action 2: Update Teacher Profile
+          incoming().diff(existing()).affectedKeys().hasOnly([
+            'teacherName',
+            'teacherNIP',
+            'teacherRole',
+            'schoolName',
+            'schoolAddress',
+            'updatedAt'
+          ]) ||
+          // Action 3: Full Config Sync by Admin
+          (isAdmin() && incoming().diff(existing()).affectedKeys().hasOnly([
+            'pinHash',
+            'teacherName',
+            'teacherNIP',
+            'teacherRole',
+            'schoolName',
+            'schoolAddress',
+            'updatedAt'
+          ]))
+        );
+
+      allow delete: if isVerifiedUser() &&
+        isValidId(configId) &&
+        isAdmin();
+    }
+
+    // Collection: /studentRecords/{recordId}
+    match /studentRecords/{recordId} {
+      allow get: if isVerifiedUser() && isValidId(recordId) && (existing().authorId == request.auth.uid || isAdmin());
+      allow list: if isVerifiedUser() && (existing().authorId == request.auth.uid || isBootstrappedAdmin());
+
+      allow create: if isVerifiedUser() &&
+        isValidId(recordId) &&
+        isValidStudentScoreRecord(incoming()) &&
+        incoming().recordId == recordId &&
+        incoming().authorId == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+
+      allow update: if isVerifiedUser() &&
+        isValidId(recordId) &&
+        isValidStudentScoreRecord(incoming()) &&
+        incoming().recordId == existing().recordId &&
+        incoming().authorId == existing().authorId &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (existing().authorId == request.auth.uid || isAdmin()) &&
+        incoming().diff(existing()).affectedKeys().hasOnly([
+          'studentName',
+          'className',
+          'studentNumber',
+          'topicId',
+          'topicTitle',
+          'activityType',
+          'activityName',
+          'score',
+          'updatedAt'
+        ]);
+
+      allow delete: if isVerifiedUser() &&
+        isValidId(recordId) &&
+        (existing().authorId == request.auth.uid || isAdmin());
+    }
+  }
+}

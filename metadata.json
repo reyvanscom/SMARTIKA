@@ -1,0 +1,6 @@
+{
+  "name": "SPENMAKRO SMART INFORMATIKA",
+  "description": "Media Pembelajaran Interaktif (MPI) Informatika SMP Negeri 5 Kroya untuk Kelas 7, 8, dan 9",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
